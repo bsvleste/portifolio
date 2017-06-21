@@ -1,0 +1,50 @@
+Fazes do Controle de versão
+
+Working Directory
+		||
+git add	||
+		||
+Staging Area
+		||
+		||
+git commit
+		||
+Git Directory
+
+/*Comandos do git*/
+//congifura o nome do usuario
+git config --global user.name
+
+//configura o email do usuario
+git config --global user.email
+
+//limpa a tela do terminal
+clear
+
+//faz um repositorio local 
+git init
+
+//verifica se tem algun arquivo para ir para o repositorio
+git status
+
+//add coloca os arquivos no stage , preparando para dar o commit
+
+git add . 
+
+//coomit manda os arquivos de vez para o repositrio entre "" o nome das alteraçoes
+git commit -m  "Primeiro commit"
+
+/*para ignorar os arquivos que nao serao commitados criar dentro da pasta um arquivo .gitignore*/
+
+//para ver as alteraçoes feitas antes de dar o commit ou add
+git diff
+
+//verifica os arquivos editados que estao na stage area " depois de dar o add ."
+git diff --staged
+
+//log mostra todos os commits ja feitos no repositorio
+git log
+
+//log --p mostra todos os detalhes do log
+//para ver os relatorios mais detalhados use o comando de interface
+gitk
