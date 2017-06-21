@@ -32,7 +32,7 @@ require("crud/funcoes.php");
 							echo '<option value="">Não temos categorias no momento</option>';	
 						}else{
 							foreach((array)$readCategorias as $mae):
-							echo '<option value="'.$mae['ID_JOGADOR'].'">'.$mae['nome'].'</option>';
+							echo '<option value="'.$mae['ID_JOGADOR'].'" name="jog">'.$mae['nome'].'</option>';
 						endforeach;	
 						}
 		?> 

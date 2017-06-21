@@ -228,6 +228,15 @@ top:20px;
  	}
  }
 @media screen and (max-width:992px) {
+	select[name="jogadores[]"]{
+		width: 95%;
+		position: relative;
+		left: 10px;
+		height:	120px;
+	}
+	option[name="jog"]{
+		height: 30px;
+	}
 	.status{
 		width: 95%;
 		position: relative;
