@@ -10,10 +10,10 @@ define(AUTOR,'Seu nome aqui');
 /*define(URL,'LINK AQUI');
 */
 //CONFIG BANCO DE DADOS
-define('HOST','mysql.hostinger.com.br');
-define('USER','u308881995_bru');
-define('PASS','T3ic0l03');
-define('BANCO','u308881995_col');
+define('HOST','localhost');
+define('USER','root');
+define('PASS','');
+define('BANCO','test');
 
 //E-MAIL
 /*define(MAILHOST,'');
