@@ -48,3 +48,48 @@ git log
 //log --p mostra todos os detalhes do log
 //para ver os relatorios mais detalhados use o comando de interface
 gitk
+
+//mostra Todos os commits ja realizados
+git log --pretty=oneline
+
+//coloca os commit juntos
+git commit --amend -m "Nome do commit anterior ou um novo commit"
+
+//tira o arquvo da stage area
+git reset HEAD nomeDoArquivo
+
+//para descartar mudanças realizadas no arquivo
+git checkout -- nomeDoArquivo
+
+//remove os arquivos 
+git rm nome dos arquivos
+
+//o comando tag serve para mostras as tags criadas, a tag serve para controlar a versao do projeto e poder voltar e ver as anteriores
+git tag
+
+//comando pra criar a tag
+git tag -a nomeda versao -m "especificação da tag"
+
+//para criar uma tag em um commit ja realizado
+git tag -a nome da versao e a chave do commit  -m "especificação da tag"
+
+//mostra os detalhes da tag
+git show  versao
+
+//volta a ser usado a versao
+git checkout nome da versao 
+
+//o brach serve para fazer alteraçoes mas sem alterar  o original, serve para fazer teste e so depois fazer a modificaçao
+git branch nomeDoBrach
+
+//faz a alteração do master para o branch criado
+git checkout nomeDoBranch
+
+//coloca as alteraçoes no principal
+git marge nomeDoBranch
+
+//deleta o brach criado
+git branch -d nomeDoBrach
+
+//comando usado para quando for diponibilizar os arquivos por rede
+git init --bare
