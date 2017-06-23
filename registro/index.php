@@ -6,7 +6,7 @@ require("crud/funcoes.php");
  ?>
 <!DOCTYPE html>
 <html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- css3-mediaqueries.js for IE8 or older --><!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
-<title>Registro</title><link rel="stylesheet" type="text/css" href="css/styleRegistro.css"><link rel="stylesheet" type="text/css" href="css/styleMobile.css">
+<title>Nova Versao do Registro</title><link rel="stylesheet" type="text/css" href="css/styleRegistro.css"><link rel="stylesheet" type="text/css" href="css/styleMobile.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script type="text/javascript" src="js/soma.js"></script><script type="text/javascript" src="js/mudastyle.js"></script></head>
 <body>
 
