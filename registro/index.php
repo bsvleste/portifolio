@@ -5,11 +5,20 @@ require("crud/crud.php");
 require("crud/funcoes.php");
  ?>
 <!DOCTYPE html>
-<html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- css3-mediaqueries.js for IE8 or older --><!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
-<title>Nova Versao do Registro</title><link rel="stylesheet" type="text/css" href="css/styleRegistro.css"><link rel="stylesheet" type="text/css" href="css/styleMobile.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script type="text/javascript" src="js/soma.js"></script><script type="text/javascript" src="js/mudastyle.js"></script></head>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- css3-mediaqueries.js for IE8 or older -->
+<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<title>Registro 2.0</title>
+<link rel="stylesheet" type="text/css" href="css/styleRegistro.css">
+<link rel="stylesheet" type="text/css" href="css/styleMobile.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/soma.js"></script>
+<script type="text/javascript" src="js/mudastyle.js"></script>
+</head>
 <body>
-
 <!--centralizaçao do site "Container centraliza container-fluid deixa o site de acordo com a resoluçao da tela"-->
 <div id="container-fluid">
 <!-- menu -->
@@ -41,6 +50,14 @@ require("crud/funcoes.php");
     </form>
 	
 <form name="form1" method="post" action="#" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-xs-2" style="height: 90px;background-color: blue;">
+			
+		</div>
+		<div class="col-xs-2" style="height: 90px;background-color: gray;">
+			
+		</div>
+	</div>
 <?php 		
 	$quadro = strip_tags(trim(mysql_real_escape_string($_POST['status'])));
 		echo'<img id="fundo" src="img/icones-fundo.png">';
