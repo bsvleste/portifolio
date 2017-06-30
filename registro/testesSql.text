@@ -1,0 +1,8 @@
+//teste do bid
+
+SELECT jogador.nome, partida.DATA_PARTIDA FROM `jogador_jogo`
+INNER JOIN jogador 
+ON jogador_jogo.ID_JOGADOR = jogador.ID_JOGADOR
+INNER JOIN partida
+on partida.ID_PARTIDA = jogador_jogo.ID_PARTIDA
+where  partida.ID_PARTIDA = 1 and bid = 's'
