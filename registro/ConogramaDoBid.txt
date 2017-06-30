@@ -2,12 +2,19 @@
 	Fazer uma pagina, na qual o usuario vai marcar seu nome, ele vai 
 	selecionar se vai jogar ou nao no sabado
 */
+/*
+	pesquizar como fazer uma funçao onde so pode cadastrar data se for sabado
+	e uma funcao para bloquear campos apos data limite
+*/
+
 1- fazer uma pagina do bid
-2- criar data da partida do jogo com data limite para responder o bid, ao criar data do jogo registrar os jogadores na tabela jogador_jogo e mostar os jogadores registrado no banco de dados
+2- criar data da partida do jogo, com data limite para responder o bid, ao criar data do jogo registrar os jogadores na tabela jogador_jogo e mostar os jogadores registrado no banco de dados
 3- Criar opção de cada jogador selecionar seu nome e clicar no botao no qual 
-diz se vai jogar ou não
+diz se vai jogar ou não , mostrar quanto tempo falta para fechar o bid
+
 4- apos prazo expirado marcar que vai jogar, quem nao ira e quem nao respondeu,
 os que nao responderam sera cobrado multa de R$ 10,00 reais.
 5- o jogador tera que estar logado para poder acessar o bid e respondelo
 ele podera clicar apenas no seu nome, e podera alterar enquanto a data limite nao expirar
 6- apenas o adm poderar alterar o bid apos o prazo 
+7- fazer um menu onde possa escolher cadastrar nova data ou pesquizar datas anteriores 
