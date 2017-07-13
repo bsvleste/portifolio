@@ -4,55 +4,67 @@
 <meta charset="UTF-8">
 	<title>Bid Colisão</title>
 </head>
-<body onLoad="atualizaContador()">
+<body>
+<h1>Descobrir como para um setInterval</h1>
 <nav>
 	<ul>
-		<li><button onclick="lerolero()">Cadastra</button></li>
+		<li><button onclick="atualizaContador()">Cadastra</button></li>
 		<li><button>Pesquisar</button></li>
 	</ul>
 </nav>
 <form action="">
 	<label for="data-jogo">Data do Jogo</label>
-	<input type="Date" id="data-jogo" name="data-jogo">
+	<input type="DateTime-local" id="data-jogo" name="data-jogo">
 	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" onChange="data= this.value">
+	<input type="DateTime-local" name="data-limite" id="data-limite">
 	<button >Cadastar</button>
 </form>
 
-
-Informe a data:
-<input size="1" onChange="DD=this.value" style="text-align: center" /> /
-<input size="1" onChange="MM=this.value" style="text-align: center" /> /
-<input size="4" onChange="YY=this.value" style="text-align: center" /> às
-<input size="1" onChange="HH=this.value" style="text-align: center" /> :
-<input size="1" onChange="MI=this.value" style="text-align: center" /> :
-<input size="1" onChange="SS=this.value" style="text-align: center" /><br /><br>
 Faltam <span id="contador"></span></body>
 <script>
+//recebe a data e hora para inicializar a funçao
 
-var YY = 00;
-var MM = 00;
-var DD = 00;
-var HH = 00;
-var MI = 00;
-var SS = 00; 
-var data;
+function lerolero()
+{
+	var dataHoje = document.getElementById("data-jogo").value;
+	var dataFutura = document.getElementById("data-limite").value;
+	//data do dia para ser comparada com a data futura	
+	var hoje = new Date(dataHoje);
+	//data que sera comparada  
+	var futuro = new Date(dataFutura);
+	//passa o segundos,milisegundos, hora, dia para inteiro
+	var ss = parseInt((futuro - hoje) / 1000);
+	return ss;
+}
+// funcçao que inicializa o contador
 function atualizaContador() 
 {  
+
+var dataHoje = document.getElementById("data-jogo").value;
+var dataFutura = document.getElementById("data-limite").value;
 //data do dia para ser comparada com a data futura	
-var hoje = new Date();
-
+var hoje = new Date(dataHoje);
+var hojeTime = hoje.getTime();
 //data que sera comparada  
-var futuro = new Date(data);   
-
+var futuro = new Date(dataFutura);
 //passa o segundos,milisegundos, hora, dia para inteiro
-var ss = parseInt((futuro - hoje) / 1000);  
+
+if(hojeTime+1000 > 0){
+
+setInterval(function(){
+
+var ss = parseInt((futuro - hojeTime) / 1000);
+//minutos
 var mm = parseInt(ss / 60);  
+//horas
 var hh = parseInt(mm / 60);  
+//dias
 var dd = parseInt(hh / 24);   
+
 ss = ss - (mm * 60);  
 mm = mm - (hh * 60);  
 hh = hh - (dd * 24);   
+
 var faltam = '';  
 faltam += (dd && dd > 1) ? dd+' dias, ' : (dd==1 ? '1 dia, ' : '');  
 faltam += (toString(hh).length) ? hh+' hr, ' : '';  
@@ -62,13 +74,16 @@ faltam += ss+' seg';
  if (dd+hh+mm+ss > 0) 
  {
   document.getElementById('contador').innerHTML = faltam;	
-  setTimeout(atualizaContador,1000);  
+  hojeTime = hojeTime  + 1000;
+  console.log(hojeTime);
  }
  else
  {
   document.getElementById('contador').innerHTML = 'CHEGOU!!!!';	
-  setTimeout(atualizaContador,1000);  
+ 	console.log('parpi');
  }
+	},1000)
+	}
 }
 </script>
 
