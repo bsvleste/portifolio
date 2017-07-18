@@ -11,7 +11,9 @@
 	
 	1.1 - funçao para contagem regresiva do bid  - feito
 
-	1.2	- criar data da partida do jogo, com data limite para responder o bid ao criar data do jogo registrar os jogadores na tabela jogador_jogo e mostar os jogadores registrado no banco de dados
+	1.2	- criar data da partida do jogo, com data limite para responder o bid - feito
+
+	1.3 - ao criar data do jogo registrar os jogadores na tabela jogador_jogo e mostar os jogadores registrado no banco de dados
 
 3- Criar opção de cada jogador selecionar seu nome e clicar no botao no qual 
 diz se vai jogar ou não , mostrar quanto tempo falta para fechar o bid
