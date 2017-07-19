@@ -39,7 +39,7 @@ app.controller('meuTeste',function($scope, $rootScope, $location){
         id: 12,
         nome: 'Dezembro'
     }];
-	$scope.msg = 'ola bebe';
+	
 });
 app.controller('HomeCtrl',function($scope, $rootScope, $location){
 
