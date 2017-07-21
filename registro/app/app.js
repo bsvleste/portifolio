@@ -15,6 +15,10 @@ app.config(function($routeProvider, $locationProvider)
       templateUrl : 'app/views/sobre.html',
       controller  : 'SobreCtrl',
    })
+   .when('/bid', {
+      templateUrl : 'app/views/bid.html',
+      controller  : 'BidCtrl',
+   })
    // caso não seja nenhum desses, redirecione para a rota '/'
    .otherwise ({ redirectTo: '/' });
 	// remove o # da url

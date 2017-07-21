@@ -9,7 +9,7 @@ app.controller('meuTeste',function($scope, $rootScope, $location){
         nome: 'Fevereiro'
     }, {
     	id: 3,
-    	nome: 'Março'
+    	nome: 'Marco'
     },{
     	id: 4,
     	nome: 'Abril'
@@ -43,8 +43,13 @@ app.controller('meuTeste',function($scope, $rootScope, $location){
 });
 app.controller('HomeCtrl',function($scope, $rootScope, $location){
 
-	$scope.msg = 'ola bebe';
-	$scope.nomes = $rootScope.dados;
+    $scope.msg = 'ola bebe';
+    $scope.nomes = $rootScope.dados;
+    $rootScope.activetab = $location.path();
+});
+app.controller('BidCtrl',function($scope, $rootScope, $location){
+
+	$scope.msg = 'Bem Vindo ao Bid';
 	$rootScope.activetab = $location.path();
 });
 app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeParams){

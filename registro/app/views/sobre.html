@@ -1,15 +1,23 @@
  <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter" ng-repeat="x in names">
       <div class="w3-container w3-card-4 w3-padding-16">        
-        <div class="w3-col">
-          <input type="text" name="valor" class="w3-input valor" placeholder="Valor" value=''>
-          <div class='w3-container w3-green' data-role="">
+        <div class="w3-row">
+          <div class="w3-col s6">
+              <input type="text" name="valor" class="w3-input valor" placeholder="Valor" value=''>
+          </div>
+          <div class="w3-col s6">
+              <a href="#" class="w3-hover-none w3-hover-text-red w3-show-inline-block w3-btn">
+                <i class="fa fa-envelope"></i>
+              </a>
+              <a href="#" class="w3-hover-none w3-hover-text-green w3-show-inline-block w3-btn">
+                <i class="fa fa-user"></i>
+              </a>
+          </div>
+        </div>
+          <div class='w3-container {{ x.Status == "PAGO" ? "w3-green" : "w3-red"}}' data-role="">
               <h5 class="">{{x.Name}}</h5>
           </div>
-          <br>
-          <a href="#" class="w3-hover-none w3-hover-text-red w3-show-inline-block w3-btn"><i class="fa fa-envelope"></i></a>
-            <a href="#" class="w3-hover-none w3-hover-text-green w3-show-inline-block w3-btn"><i class="fa fa-user"></i></a>
-        </div>
+          <br>          
       </div>
     </div>   
   
