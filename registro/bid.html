@@ -8,7 +8,8 @@
 
 
 <body>
-<h1>Pesquisar com pegar um select do php com json por ajax</h1>
+																	"ano-mes-diaThora:minutos:segundos"				
+<h1>Salvar a data e hora nesse formato no banco de dados para funcionar a funçao "2015-05-10T10:03:00"</h1>
 <nav>
 	<ul>
 		<!--<li><button onclick="atualizaContador()">Cadastra</button></li>-->
@@ -43,7 +44,7 @@ $(document).ready(function(){
 		//url = "cadastroDataBid.php?hoje="+hoje+"&dataEncerramentoBid="+dataEncerramentoBid;
 		url = "cadastroDataBid.php";
 		//console.log(url);
-
+	
 		$.ajax({
 		  url:url,
 		  type:'POST',
@@ -55,10 +56,10 @@ $(document).ready(function(){
 		  success:function(data)
 		  {
 		    	if (data != " "){
-		    		
-     				console.log(data.records); //envia pro console o valor
-				
+		        	//console.log(data.dataBid);		        	
 		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
+		        	//atualizaContador(data.dataPartida, data.dataBid);
+		        	atualizaContador(data.dataPartida, data.dataBid);
 		    	} 
 		        
 		  },

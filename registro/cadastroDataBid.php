@@ -18,10 +18,9 @@ $conn = new mysqli("localhost", "root","", "test");
 $result = $conn->query("INSERT INTO partida (ID_PARTIDA, DATA_PARTIDA, DATABID) 
 						VALUES(4,'$dataPartida','$dataEncerramentoBid')");
 
-if($result)
-{	
-	$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = 3 ");	
-$outp = "";
+
+$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = 3 ");	
+/*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
 	    $outp .= '{"id_partida":"'  . $rs["ID_PARTIDA"] . '",';
@@ -30,11 +29,16 @@ $outp = "";
 	}
 $outp ='{"records":['.$outp.']}';
 	echo json_encode($outp);
-}else
-{
-	$data = array('enviado' => false);
-	echo json_encode($data);
-}
+*/
+	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
+
+		$data = array(
+			'id_partida' => $rs['ID_PARTIDA'],
+			'dataPartida' => $rs['DATA_PARTIDA'],
+			'dataBid' => $rs['DATABID']
+			);
+		echo json_encode($data);
+	}
 $conn->close();
 
 ?>
