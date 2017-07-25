@@ -15,11 +15,17 @@ $dataEncerramentoBid = $_POST['dataEncerramentoBid'];
 
 $conn = new mysqli("localhost", "root","", "test");
 
+$pegaId = $conn->query("SELECT MAX (ID_PARTIDA) FROM partida");
+
+$somaId = (int)$pegaId;
+
+echo "String ".$somaId;
+
 $result = $conn->query("INSERT INTO partida (ID_PARTIDA, DATA_PARTIDA, DATABID) 
-						VALUES(4,'$dataPartida','$dataEncerramentoBid')");
+						VALUES('$somaId','$dataPartida','$dataEncerramentoBid')");
 
 
-$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = 3 ");	
+$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $somaId ");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}

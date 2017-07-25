@@ -8,7 +8,7 @@
 
 
 <body>
-																	<p>"ano-mes-diaThora:minutos:segundos"</p>				
+<p>"ano-mes-diaThora:minutos:segundos"</p>				
 <h1>Salvar a data e hora nesse formato no banco de dados para funcionar a funçao "2015-05-10T10:03:00"</h1>
 <nav>
 	<ul>
@@ -36,8 +36,8 @@ $(document).ready(function(){
 		var hojeData = new Date();	
 		//data que sera comparada  
 		var dataEncerramento = new Date(dataFutura);
-		var hoje = hojeData.getDate()+"/"+hojeData.getMonth()+"/"+hojeData.getFullYear()+"-"+hojeData.getTime();
-		var dataEncerramentoBid = dataEncerramento.getDate()+"/"+dataEncerramento.getMonth()+"/"+dataEncerramento.getFullYear()+"-"+dataEncerramento.getTime();
+		//var hoje = hojeData.getDate()+"/"+hojeData.getMonth()+"/"+hojeData.getFullYear()+"-"+hojeData.getTime();
+		//var dataEncerramentoBid = dataEncerramento.getDate()+"/"+dataEncerramento.getMonth()+"/"+dataEncerramento.getFullYear()+"-"+dataEncerramento.getTime();
 		 
 	
 		//url = "/sitecolisao/public/adm/mensalidade/receber/"+cat_id+"/"+valor+"/"+mes;
@@ -50,8 +50,8 @@ $(document).ready(function(){
 		  type:'POST',
 		  dataType:'JSON',	
 		  data:{
-			'hoje':hoje,
-			'dataEncerramentoBid':dataEncerramentoBid,
+			'hoje':hojeData,
+			'dataEncerramentoBid':dataEncerramento,
 		},
 		  success:function(data)
 		  {
