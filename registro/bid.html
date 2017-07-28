@@ -7,8 +7,8 @@
 </head>
 
 
-<body>
-<p>"ano-mes-diaThora:minutos:segundos"</p>				
+<body onload="atualizaContador()">
+<p>Fazer teste de hora na funcçao atualiza contaodr</p>				
 <h1>Salvar a data e hora nesse formato no banco de dados para funcionar a funçao "2015-05-10T10:03:00"</h1>
 <nav>
 	<ul>
@@ -22,6 +22,7 @@
 	<input type="DateTime-local" id="data-jogo" name="data-jogo">
 	<label for="data-limite">Data e Hora Limite</label>
 	<input type="DateTime-local" name="data-limite" id="data-limite">
+	<input type="text" id="id_teste">
 	<button >Cadastar</button>
 </form>
 
@@ -55,11 +56,13 @@ $(document).ready(function(){
 		},
 		  success:function(data)
 		  {
-		    	if (data != " "){
+		    	if (data.enviado == true){
 		        	//console.log(data.dataBid);		        	
 		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
 		        	//atualizaContador(data.dataPartida, data.dataBid);
-		        	atualizaContador(data.dataPartida, data.dataBid);
+		        	console.log("CAsdatrodo com sucesso");
+		        	atualizaContador();
+		        	document.getElementById("id_teste").value = data.dataBid;
 		    	} 
 		        
 		  },
@@ -72,13 +75,22 @@ $(document).ready(function(){
 });
 
 // funcçao que inicializa o contador
-function atualizaContador(dataHoje, dataFutura) 
+function atualizaContador() 
 {  
 	/*var dataHoje = document.getElementById("data-jogo").value;
-	var dataFutura = document.getElementById("data-limite").value;
 	*/
+	var pegaData;
+	url = "atualizaData.php";
+	$.ajax({
+		  url:url,
+		  type:'POST',
+		  dataType:'JSON',	
+		  success:function(data)
+		  {
+		  	var dataFutura = data.dataBid;
 	//data do dia para ser comparada com a data futura	
-	var hoje = new Date(dataHoje);
+	console.log("data futura" + dataFutura);
+	var hoje = new Date();
 	var hojeTime = hoje.getTime();
 	//data que sera comparada  
 	var futuro = new Date(dataFutura);
@@ -120,6 +132,14 @@ function atualizaContador(dataHoje, dataFutura)
 			}
 		},1000)
 	}
+		  },
+		  error:function(error)
+		  {
+		    console.log("Erro no ajax" + error);
+		  }
+	});
+
+	
 }
 
 </script>

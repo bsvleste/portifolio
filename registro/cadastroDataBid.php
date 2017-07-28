@@ -12,20 +12,19 @@ $dataEncerramentoBid = $request->dataEncerramentoBid;
 */
 $dataPartida = $_POST['hoje'];
 $dataEncerramentoBid = $_POST['dataEncerramentoBid'];		
+$id = 1;
+$conn = new mysqli("localhost", "root","", "colisao");
 
-$conn = new mysqli("localhost", "root","", "test");
+$pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
 
-$pegaId = $conn->query("SELECT MAX (ID_PARTIDA) FROM partida");
-
-$somaId = (int)$pegaId;
-
-echo "String ".$somaId;
+$somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
+$id += $somaId['id'];
 
 $result = $conn->query("INSERT INTO partida (ID_PARTIDA, DATA_PARTIDA, DATABID) 
-						VALUES('$somaId','$dataPartida','$dataEncerramentoBid')");
+						VALUES('$id','$dataPartida','$dataEncerramentoBid')");
 
 
-$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $somaId ");	
+$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
@@ -36,14 +35,19 @@ $select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $somaId ");
 $outp ='{"records":['.$outp.']}';
 	echo json_encode($outp);
 */
-	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
+	if($select){
 
-		$data = array(
-			'id_partida' => $rs['ID_PARTIDA'],
-			'dataPartida' => $rs['DATA_PARTIDA'],
-			'dataBid' => $rs['DATABID']
-			);
-		echo json_encode($data);
+		while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
+			$data = array(
+				'enviado' => true,
+				'id_partida' => $rs['ID_PARTIDA'],
+				'dataPartida' => $rs['DATA_PARTIDA'],
+				'dataBid' => $rs['DATABID']
+				);
+			echo json_encode($data);
+		}		
+	}else{
+		$data = array('enviado'=>false);
 	}
 $conn->close();
 
