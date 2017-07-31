@@ -1,0 +1,53 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+// get posted data
+// get posted data
+/*
+$postdata = file_get_contents("php://input",true);
+$request = json_decode($postdata);
+$dataPartida = $request->hoje;
+$dataEncerramentoBid = $request->dataEncerramentoBid;
+*/
+/*$dataPartida = $_POST['hoje'];
+$dataEncerramentoBid = $_POST['dataEncerramentoBid'];		
+*/
+$id = 1;
+$conn = new mysqli("localhost", "root","", "colisao");
+
+$pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
+
+$somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
+$id = $somaId['id'];
+
+
+
+$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
+/*$outp = "";
+	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
+	    if ($outp != "") {$outp .= ",";}
+	    $outp .= '{"id_partida":"'  . $rs["ID_PARTIDA"] . '",';
+	    $outp .= '"dataPartida":"'   . $rs["DATA_PARTIDA"]        . '",';  
+	    $outp .= '"dataBid":"'. $rs["DATABID"]     . '"}';
+	}
+$outp ='{"records":['.$outp.']}';
+	echo json_encode($outp);
+*/
+	if($select){
+
+		while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
+			$data = array(
+				'enviado' => true,
+				'id_partida' => $rs['ID_PARTIDA'],
+				'dataPartida' => $rs['DATA_PARTIDA'],
+				'dataBid' => $rs['DATABID']
+				);
+			echo json_encode($data);
+		}		
+	}else{
+		$data = array('enviado'=>false);
+	}
+$conn->close();
+
+?>
