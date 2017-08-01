@@ -8,7 +8,7 @@
 
 
 <body onload="atualizaContador()">
-<p>Fazer teste de hora na funcçao atualiza contaodr</p>				
+<p>Fazer teste de hora na funcçao atualiza </p>				
 <h1>Salvar a data e hora nesse formato no banco de dados para funcionar a funçao "2015-05-10T10:03:00"</h1>
 <nav>
 	<ul>
@@ -90,13 +90,13 @@ function atualizaContador()
 		  	var dataFutura = data.dataBid;
 	//data do dia para ser comparada com a data futura	
 	console.log("data futura" + dataFutura);
-	var hoje = new Date();
+	var hoje = new Date(data.dataAtual);
 	var hojeTime = hoje.getTime();
 	//data que sera comparada  
 	var futuro = new Date(dataFutura);
 	//passa o segundos,milisegundos, hora, dia para inteiro
 
-	if(hojeTime+1000 > 0){
+	if(hojeTime > 0){
 
 		var tempo = setInterval(function(){
 

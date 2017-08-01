@@ -14,16 +14,15 @@ $dataEncerramentoBid = $request->dataEncerramentoBid;
 $dataEncerramentoBid = $_POST['dataEncerramentoBid'];		
 */
 $id = 1;
-$conn = new mysqli("localhost", "root","", "colisao");
+$conn = new mysqli("localhost", "root","", "test");
 
 $pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
 
 $somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
 $id = $somaId['id'];
 
-
-
-$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
+$select = $conn->query("SELECT ID_PARTIDA, DATA_PARTIDA, DATABID, Now() as data from partida WHERE ID_PARTIDA = $id");
+//$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
@@ -40,6 +39,7 @@ $outp ='{"records":['.$outp.']}';
 			$data = array(
 				'enviado' => true,
 				'id_partida' => $rs['ID_PARTIDA'],
+				'dataAtual' =>$rs['data'],
 				'dataPartida' => $rs['DATA_PARTIDA'],
 				'dataBid' => $rs['DATABID']
 				);
