@@ -12,7 +12,7 @@
 <nav>
 	<ul>
 		<!--<li><button onclick="atualizaContador()">Cadastra</button></li>-->
-		<li><button id="btn-cadastra">Cadastra</button></li>
+		<li><button id="btn-cadastra" onclick="cadastraJogador()">Cadastra</button></li>
 		<li><button>Pesquisar</button></li>
 	</ul>
 </nav>
@@ -25,6 +25,7 @@
 	<button >Cadastar</button>
 </form>
 
+<label id="nome"></label>
 Faltam <span id="contador"></span></body>
 <script>
 $(document).ready(function(){
@@ -88,6 +89,8 @@ function atualizaContador()
 		  dataType:'JSON',	
 		  success:function(data)
 		  {
+		  	console.log(data);
+		  	document.getElementById('nome').innerHTML = data.nome;	
 		  	var dataFutura = data.dataBid;
 	//data do dia para ser comparada com a data futura	
 	//console.log("data futura" + dataFutura);
@@ -123,7 +126,7 @@ function atualizaContador()
 			{
 			 	document.getElementById('contador').innerHTML = faltam;	
 			  	hojeTime = hojeTime  + 1000;
-			  	console.log(hojeTime);
+			  	
 			}
 			else
 			{
@@ -144,5 +147,27 @@ function atualizaContador()
 	
 }
 
+function cadastraJogador(){
+	url = "cadastraJogador.php";
+		//console.log(url);
+	
+		$.ajax({
+		  url:url,
+		  type:'POST',
+		  dataType:'JSON',	 
+		  success:function(data)
+		  {
+		    	if (data.enviado == true){		        	
+		        	console.log("CAsdatrodo com sucesso Jogadores");		        	
+		    	}else{
+		    		console.log("data encerrada jogadores");
+		    	} 		        
+		  },
+		  error:function(error)
+		  {
+		    console.log("Erro no ajax" + error);
+		  }
+	});
+}
 </script>
 

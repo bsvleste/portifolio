@@ -28,6 +28,16 @@ $id = $somaId['id'];
 //seleciona os dados da ultima partida cadastrada
 $select = $conn->query("SELECT ID_PARTIDA, DATA_PARTIDA, DATABID, Now() as data from partida WHERE ID_PARTIDA = $id");
 
+$selectJogadores = $conn->query(
+			"SELECT * FROM jogador_jogo
+			 INNER JOIN jogador 
+			 ON jogador_jogo.ID_JOGADOR = jogador.ID_JOGADOR			 
+			 where  ID_PARTIDA = $id");
+
+while ($jg = $selectJogadores->fetch_array(MYSQLI_ASSOC)) {
+	$jogador = array('nome'=>$jg["nome"]);
+	echo json_encode($jogador);
+}
 //$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
@@ -46,13 +56,14 @@ $outp ='{"records":['.$outp.']}';
 			$data = array(
 				'enviado' => true,
 				'id_partida' => $rs['ID_PARTIDA'],
+				'nome'=>$jg["nome"],
+				'Bid'=>$jg["Bid"],
 				'dataAtual' =>$rs['data'],
 				'dataPartida' => $rs['DATA_PARTIDA'],
 				'dataBid' => $rs['DATABID']
 				);
 			echo json_encode($data);
 	}
-
 	}else{
 		$data = array('enviado'=>false);
 	}
