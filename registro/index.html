@@ -3,25 +3,50 @@
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> 
 <script src="https://www.w3schools.com/lib/w3.js"></script>
-<body style="max-width:600px" ng-app="app">
+<style>
+	a, a:link{
+		color: black;
+		text-decoration: none;
+		list-style-type: none;
+	}
+	a:active{
+		color: white;
+	}	
+	.img{
+		width: 9.5%;
+	}
+</style>
+<body ng-app="app">
 
 <div ng-include="'app/views/menu.html'" ng-controller="meuTeste" id="mySidebar"></div>
 
 <header class="w3-bar w3-card w3-theme">
-  <button class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
-  <h1 class="w3-bar-item">Movies</h1>
+  <div class="w3-padding w3-center">
+    <img class="img w3-circle" src="../registro/img/logoColisao.png" alt="avatar">
+  </div>
 </header>
 
 <div ng-view class="w3-container" ></div>
 
-<footer class="w3-container w3-theme w3-margin-top">
-  <h3>Footer</h3>
+<footer class="w3-bar w3-border w3-bottom w3-theme w3-margin-top">
+		
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/home" onclick="closeSidebar()"><i class="fa fa-home fa-2x"></i><div>Home</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item  w3-center">
+  	<a href="" onclick="openSidebar()" id="mySidebar"><i class="fa fa-money fa-2x"></i><div>Mensalidade</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/bid" onclick="closeSidebar()" class="w3-center"><i class="fa fa-futbol-o fa-2x"></i><div>BID</div></a>
+  </div>
+  
 </footer>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>

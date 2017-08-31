@@ -1,15 +1,9 @@
-<nav class="w3-sidebar w3-bar-block w3-card" id="mySidebar">
-<div class="w3-container w3-theme-d2">
+<nav class="w3-sidebar w3-bar-block w3-border-right"  id="mySidebar">
+<div class="w3-container">
   <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
-  <br>
-  <div class="w3-padding w3-center">
-    <img class="w3-circle" src="../registro/img/logoColisao.png" alt="avatar" style="width:75%">
-  </div>
+  <br>  
 </div>
-<div>
-	<a class="w3-bar-item w3-button" href="#/" onclick="closeSidebar()">Home</a>
-	<a class="w3-bar-item w3-button" href="#/bid" onclick="closeSidebar()">Bid</a>
-	 <a class="w3-bar-item w3-button" href="#/sobre/{{nome.id}}" ng-repeat="nome in dados" onclick="closeSidebar()">{{nome.nome}}</a>
-</div>
+<a class="w3-bar-item w3-button" href="#/sobre/{{nome.id}}" ng-repeat="nome in dados" onclick="closeSidebar()">{{nome.nome}}</a>
+
 </nav>
 
