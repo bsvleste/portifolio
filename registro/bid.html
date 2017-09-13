@@ -149,7 +149,24 @@ function atualizaContador()
 
 				url = 'chamaJogadorBid.php';
 			  	//console.log('id da partida' + id); 
-			  	var xhttp = new XMLHttpRequest();
+			  	$.ajax({
+			  		url: url,
+			  		type: 'POST',
+			  		dataType: 'JSON',
+			  		data: {param1: 'value1'},
+			  	})
+			  	.done(function(data) {
+			  		console.log(data);
+			  	})
+			  	.fail(function() {
+			  		console.log("error");
+			  	})
+			  	.always(function() {
+			  		console.log("complete");
+			  	});
+
+			  	erro o ajax o json nao pega multiplos valores pesquizar como fazer
+			/*  	var xhttp = new XMLHttpRequest();
   				xhttp.onreadystatechange = function() {
     			if (this.readyState == 4 && this.status == 200) {
      			
@@ -158,6 +175,8 @@ function atualizaContador()
   				};
   				xhttp.open("GET", url, true);
   				xhttp.send();
+			  */				
+	
 }
 
 /*function cadastraJogador(){

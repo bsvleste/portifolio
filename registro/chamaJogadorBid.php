@@ -14,7 +14,7 @@ $dataEncerramentoBid = $request->dataEncerramentoBid;
 
 $postdata = file_get_contents("php://input",true);
 $conn = new mysqli("localhost", "root","", "colisao");
-$select = $conn->query("SELECT * FROM jogador");	
+$select = $conn->query("SELECT * FROM registro where gol = 2");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
 	    if ($outp != "") {$outp .= ",";}
@@ -30,7 +30,7 @@ $outp ='{"records":['.$outp.']}';
 			$data = array(
 				'enviado' => true,
 				'id_jogador' =>$rs['ID_JOGADOR'],
-				'nome' => $rs['nome']
+				'nome' => $rs['gol']
 				);
 			echo json_encode($data);
 		}		
