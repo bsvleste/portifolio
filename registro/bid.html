@@ -12,7 +12,7 @@
 <nav>
 	<ul>
 		<!--<li><button onclick="atualizaContador()">Cadastra</button></li>-->
-		<li><button id="btn-cadastra" onclick="cadastraJogador()">Cadastra</button></li>
+		<li><button id="btn-cadastra">Cadastra</button></li>
 		<li><button>Pesquisar</button></li>
 	</ul>
 </nav>
@@ -24,8 +24,6 @@
 	<input type="text" id="id_teste">
 	<button >Cadastar</button>
 </form>
-
-<label id="nome"></label>
 Faltam <span id="contador"></span></body>
 <script>
 $(document).ready(function(){
@@ -81,7 +79,7 @@ function atualizaContador()
 {  
 	/*var dataHoje = document.getElementById("data-jogo").value;
 	*/
-	var pegaData;
+	var pegaData;	
 	url = "atualizaData.php";
 	$.ajax({
 		  url:url,
@@ -89,8 +87,7 @@ function atualizaContador()
 		  dataType:'JSON',	
 		  success:function(data)
 		  {
-		  	console.log(data);
-		  	document.getElementById('nome').innerHTML = data.nome;	
+		  	console.log(data);	
 		  	var dataFutura = data.dataBid;
 	//data do dia para ser comparada com a data futura	
 	//console.log("data futura" + dataFutura);
@@ -147,7 +144,7 @@ function atualizaContador()
 	
 }
 
-function cadastraJogador(){
+/*function cadastraJogador(){
 	url = "cadastraJogador.php";
 		//console.log(url);
 	
@@ -168,6 +165,6 @@ function cadastraJogador(){
 		    console.log("Erro no ajax" + error);
 		  }
 	});
-}
+}*/
 </script>
 
