@@ -25,9 +25,11 @@
 	<button >Cadastar</button>
 </form>
 Faltam <span id="contador"></span></body>
-<script>
-$(document).ready(function(){
 
+<script>
+
+$(document).ready(function(){
+	
 	$('#btn-cadastra').click(function(){		
 		
 		var dataFutura = document.getElementById("data-limite").value;
@@ -59,8 +61,10 @@ $(document).ready(function(){
 		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
 		        	//atualizaContador(data.dataPartida, data.dataBid);
 		        	console.log("CAsdatrodo com sucesso");
-		        	atualizaContador();
 		        	document.getElementById("id_teste").value = data.dataBid;
+		    		id  = data.id_partida;
+		    		console.log('id cadastraJogador' + id);
+		        	atualizaContador();
 		    	}else{
 		    		console.log("data encerrada");
 		    	} 
@@ -79,6 +83,7 @@ function atualizaContador()
 {  
 	/*var dataHoje = document.getElementById("data-jogo").value;
 	*/
+
 	var pegaData;	
 	url = "atualizaData.php";
 	$.ajax({
@@ -87,7 +92,7 @@ function atualizaContador()
 		  dataType:'JSON',	
 		  success:function(data)
 		  {
-		  	console.log(data);	
+		  	//console.log(data);	
 		  	var dataFutura = data.dataBid;
 	//data do dia para ser comparada com a data futura	
 	//console.log("data futura" + dataFutura);
@@ -96,7 +101,7 @@ function atualizaContador()
 	//data que sera comparada  
 	var futuro = new Date(dataFutura);
 	//passa o segundos,milisegundos, hora, dia para inteiro
-
+	id = data.id_partida;
 	if(hojeTime > 0){
 
 		var tempo = setInterval(function(){
@@ -123,6 +128,7 @@ function atualizaContador()
 			{
 			 	document.getElementById('contador').innerHTML = faltam;	
 			  	hojeTime = hojeTime  + 1000;
+			  	/*chama os jogadores do colisao*/
 			  	
 			}
 			else
@@ -141,7 +147,17 @@ function atualizaContador()
 		  }
 	});
 
-	
+				url = 'chamaJogadorBid.php';
+			  	//console.log('id da partida' + id); 
+			  	var xhttp = new XMLHttpRequest();
+  				xhttp.onreadystatechange = function() {
+    			if (this.readyState == 4 && this.status == 200) {
+     			
+     				console.log(this.responseText);
+    				}
+  				};
+  				xhttp.open("GET", url, true);
+  				xhttp.send();
 }
 
 /*function cadastraJogador(){
