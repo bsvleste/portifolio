@@ -24,7 +24,10 @@
 	<input type="text" id="id_teste">
 	<button >Cadastar</button>
 </form>
-Faltam <span id="contador"></span></body>
+Faltam <span id="contador"></span>
+<span id="nomes"></span>
+
+</body>
 
 <script>
 
@@ -129,13 +132,14 @@ function atualizaContador()
 			 	document.getElementById('contador').innerHTML = faltam;	
 			  	hojeTime = hojeTime  + 1000;
 			  	/*chama os jogadores do colisao*/
-			  	
+			  	var teste = true;
 			}
 			else
 			{
 			  	document.getElementById('contador').innerHTML = 'CHEGOU!!!!';	
 			  	document.getElementById('contador').style.background = 'red';	
 			 	clearInterval(tempo);
+			 	var teste = false;
 
 			}
 		},1000)
@@ -149,6 +153,9 @@ function atualizaContador()
 
 				url = 'chamaJogadorBid.php';
 			  	//console.log('id da partida' + id); 
+			  	
+			 
+
 			  	$.ajax({
 			  		url: url,
 			  		type: 'POST',
@@ -156,7 +163,7 @@ function atualizaContador()
 			  		data: {param1: 'value1'},
 			  	})
 			  	.done(function(data) {
-			  		console.log(data);
+			  		console.log(data);			  		
 			  	})
 			  	.fail(function() {
 			  		console.log("error");
@@ -164,8 +171,8 @@ function atualizaContador()
 			  	.always(function() {
 			  		console.log("complete");
 			  	});
-
-			  	erro o ajax o json nao pega multiplos valores pesquizar como fazer
+			 
+			  	
 			/*  	var xhttp = new XMLHttpRequest();
   				xhttp.onreadystatechange = function() {
     			if (this.readyState == 4 && this.status == 200) {

@@ -47,10 +47,32 @@ app.controller('HomeCtrl',function($scope, $rootScope, $location){
     $scope.nomes = $rootScope.dados;
     $rootScope.activetab = $location.path();
 });
-app.controller('BidCtrl',function($scope, $rootScope, $location){
+app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routeParams){
 
 	$scope.msg = 'Bem Vindo ao Bid';
-	$rootScope.activetab = $location.path();
+    $scope.cadastraData = function(dataLimite){
+        //data limnite do bid
+        $scope.dataLimite = dataLimite;            
+        //data atual para ser comparada
+        $scope.data = new Date();       
+        //ajax para cadastrar no bano de dados
+        $http({
+            method:'POST',
+            data:{
+                'hoje':$scope.data,
+                'dataEncerramentoBid':$scope.dataLimite
+            },
+            headers:{
+               'Content-Type': 'application/x-www-form-urlencoded' 
+           },
+           url:'app/php/cadastroDataBid.php'
+        })
+        .then(function(response){
+            atualizaContador();
+        });
+
+        }    
+	
 });
 app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeParams){
 

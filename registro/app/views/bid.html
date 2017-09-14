@@ -1,78 +1,64 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-	<title>Bid Colisão</title>
-</head>
-
-
-<body>
-<h1>{{msg}}</h1>
-<nav>
-	<ul>
-		<li><button onClick="atualizaContador();">Cadastra</button></li>
-		<li><button>Pesquisar</button></li>
-	</ul>
-</nav>
-<form action="">
-	<label for="data-jogo">Data do Jogo</label>
-	<input type="DateTime-local" id="data-jogo" name="data-jogo">
+<h1> {{msg}}</h1>
+<form action="">	
 	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite">
-	<button >Cadastar</button>
+	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
 </form>
+<span id="contador"></span>
+<span id="nomes"></span>
 
-Faltam <span id="contador"></span></body>
 <script>
-// funcçao que inicializa o contador
-function atualizaContador() 
-{  
-	var dataHoje = document.getElementById("data-jogo").value;
-	var dataFutura = document.getElementById("data-limite").value;
-	//data do dia para ser comparada com a data futura	
-	var hoje = new Date(dataHoje);
-	var hojeTime = hoje.getTime();
-	//data que sera comparada  
-	var futuro = new Date(dataFutura);
-	//passa o segundos,milisegundos, hora, dia para inteiro
 
-	if(hojeTime+1000 > 0){
+$(document).ready(function(){
+	
+	$('#btn-cadastra').click(function(){		
+		
+		var dataFutura = document.getElementById("data-limite").value;
+		//data do dia para ser comparada com a data futura	
+		var hojeData = new Date();	
+		//data que sera comparada  
+		var dataEncerramento = dataFutura;
+		//var hoje = hojeData.getDate()+"/"+hojeData.getMonth()+"/"+hojeData.getFullYear()+"-"+hojeData.getTime();
+		//var dataEncerramentoBid = dataEncerramento.getDate()+"/"+dataEncerramento.getMonth()+"/"+dataEncerramento.getFullYear()+"-"+dataEncerramento.getTime();
+		 
+	
+		//url = "/sitecolisao/public/adm/mensalidade/receber/"+cat_id+"/"+valor+"/"+mes;
+		//url = "cadastroDataBid.php?hoje="+hoje+"&dataEncerramentoBid="+dataEncerramentoBid;
+		url = "cadastroDataBid.php";
+		//console.log(url);
+	
+		$.ajax({
+		  url:url,
+		  type:'POST',
+		  dataType:'JSON',	
+		  data:{
+			'hoje':hojeData,
+			'dataEncerramentoBid':dataEncerramento,
+		},
+		  success:function(data)
+		  {
+		    	if (data.enviado == true){
+		        	//console.log(data.dataBid);		        	
+		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
+		        	//atualizaContador(data.dataPartida, data.dataBid);
+		        	console.log("CAsdatrodo com sucesso");
+		        	document.getElementById("id_teste").value = data.dataBid;
+		    		id  = data.id_partida;
+		    		console.log('id cadastraJogador' + id);
+		        	atualizaContador();
+		    	}else{
+		    		console.log("data encerrada");
+		    	} 
+		        
+		  },
+		  error:function(error)
+		  {
+		    console.log("Erro no ajax" + error);
+		  }
+	});
+  });
+});
 
-		var tempo = setInterval(function(){
-
-			var ss = parseInt((futuro - hojeTime) / 1000);
-			//minutos
-			var mm = parseInt(ss / 60);  
-			//horas
-			var hh = parseInt(mm / 60);  
-			//dias
-			var dd = parseInt(hh / 24);   
-
-			ss = ss - (mm * 60);  
-			mm = mm - (hh * 60);  
-			hh = hh - (dd * 24);   
-
-			var faltam = '';  
-			faltam += (dd && dd > 1) ? dd+' dias, ' : (dd==1 ? '1 dia, ' : '');  
-			faltam += (toString(hh).length) ? hh+' hr, ' : '';  
-			faltam += (toString(mm).length) ? mm+' min e ' : '';  
-			faltam += ss+' seg';   
-
-			if (dd+hh+mm+ss > 0) 
-			{
-			 	document.getElementById('contador').innerHTML = faltam;	
-			  	hojeTime = hojeTime  + 1000;
-			  	console.log(hojeTime);
-			}
-			else
-			{
-			  	document.getElementById('contador').innerHTML = 'CHEGOU!!!!';	
-			  	document.getElementById('contador').style.background = 'red';	
-			 	clearInterval(tempo);
-			}
-		},1000)
-	}
-}
 
 </script>
 
