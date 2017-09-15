@@ -11,8 +11,9 @@ $dataEncerramentoBid = $request->dataEncerramentoBid;
 */
 $dataPartida = $_POST['hoje'];
 $dataEncerramentoBid = $_POST['dataEncerramentoBid'];		
+
 $id = 1;
-$conn = new mysqli("localhost", "root","", "test");
+$conn = new mysqli("localhost", "root","", "colisao");
 $pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
 $somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
 $id += $somaId['id'];

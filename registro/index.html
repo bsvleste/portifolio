@@ -80,7 +80,7 @@ function atualizaContador()
       success:function(data)
       {
         //console.log(data);  
-        var dataFutura = data.dataBid;
+  var dataFutura = data.dataBid;
   //data do dia para ser comparada com a data futura  
   //console.log("data futura" + dataFutura);
   var hoje = new Date(data.dataAtual);
@@ -116,14 +116,13 @@ function atualizaContador()
         document.getElementById('contador').innerHTML = faltam; 
           hojeTime = hojeTime  + 1000;
           /*chama os jogadores do colisao*/
-          var teste = true;
       }
       else
       {
           document.getElementById('contador').innerHTML = 'BID ENCERRADO!!!'; 
           document.getElementById('contador').style.background = 'red'; 
         clearInterval(tempo);
-        var teste = false;
+        
 
       }
     },1000)
@@ -136,10 +135,6 @@ function atualizaContador()
   });
 
         url = 'chamaJogadorBid.php';
-          //console.log('id da partida' + id); 
-          
-       
-
           $.ajax({
             url: url,
             type: 'POST',
@@ -147,7 +142,7 @@ function atualizaContador()
             data: {param1: 'value1'},
           })
           .done(function(data) {
-            console.log(data);            
+           // console.log(data);            
           })
           .fail(function() {
             console.log("error");

@@ -131,15 +131,12 @@ function atualizaContador()
 			{
 			 	document.getElementById('contador').innerHTML = faltam;	
 			  	hojeTime = hojeTime  + 1000;
-			  	/*chama os jogadores do colisao*/
-			  	var teste = true;
 			}
 			else
 			{
 			  	document.getElementById('contador').innerHTML = 'CHEGOU!!!!';	
 			  	document.getElementById('contador').style.background = 'red';	
 			 	clearInterval(tempo);
-			 	var teste = false;
 
 			}
 		},1000)

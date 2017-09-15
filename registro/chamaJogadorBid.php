@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $postdata = file_get_contents("php://input",true);
 $request = json_decode($postdata);
 
-$conn = new mysqli("localhost", "root", "", "test");
+$conn = new mysqli("localhost", "root", "", "colisao");
 
 //$result = $conn->query("SELECT * FROM mensalidade WHERE id_mes='1'");
 $result = $conn->query("SELECT * FROM jogador");

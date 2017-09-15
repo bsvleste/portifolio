@@ -68,6 +68,9 @@ app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routePa
            url:'app/php/cadastroDataBid.php'
         })
         .then(function(response){
+            console.log(response);
+            $scope.dados = response.data.records;
+            console.log($scope.dados);
             atualizaContador();
         });
 
@@ -92,6 +95,7 @@ app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeP
         url: 'app/php/mensalidadeJaneiro.php'
    	})
     .then(function (response) {
+        console.log(response);
     	$scope.names = response.data.records;
     	if($scope.mes == 1)
     		$scope.msg = "Janeiro";

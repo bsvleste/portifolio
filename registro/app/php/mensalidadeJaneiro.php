@@ -7,7 +7,7 @@ $postdata = file_get_contents("php://input",true);
 $request = json_decode($postdata);
 $mes = $request->mes;
 
-$conn = new mysqli("localhost", "root", "", "colisao");
+$conn = new mysqli("localhost", "root", "", "test");
 
 //$result = $conn->query("SELECT * FROM mensalidade WHERE id_mes='1'");
 $result = $conn->query("SELECT users.name, mensalidade.* FROM mensalidade

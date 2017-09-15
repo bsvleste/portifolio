@@ -16,7 +16,7 @@ $dataEncerramentoBid = $_POST['dataEncerramentoBid'];
 //inicializa o id da partida 
 $id = 1;
 //faz a conexao com o banco de dados
-$conn = new mysqli("localhost", "root","", "test");
+$conn = new mysqli("localhost", "root","", "colisao");
 //pega o ultimo id cadastrado
 $pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
 //seleciona todos os jogadores

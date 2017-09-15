@@ -5,60 +5,8 @@
 	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
 </form>
 <span id="contador"></span>
-<span id="nomes"></span>
-
-<script>
-
-$(document).ready(function(){
+<div ng-repeat = "nomes in dados">
+	<span id="nomes">Jogadores {{nomes.nome}}</span>
 	
-	$('#btn-cadastra').click(function(){		
-		
-		var dataFutura = document.getElementById("data-limite").value;
-		//data do dia para ser comparada com a data futura	
-		var hojeData = new Date();	
-		//data que sera comparada  
-		var dataEncerramento = dataFutura;
-		//var hoje = hojeData.getDate()+"/"+hojeData.getMonth()+"/"+hojeData.getFullYear()+"-"+hojeData.getTime();
-		//var dataEncerramentoBid = dataEncerramento.getDate()+"/"+dataEncerramento.getMonth()+"/"+dataEncerramento.getFullYear()+"-"+dataEncerramento.getTime();
-		 
-	
-		//url = "/sitecolisao/public/adm/mensalidade/receber/"+cat_id+"/"+valor+"/"+mes;
-		//url = "cadastroDataBid.php?hoje="+hoje+"&dataEncerramentoBid="+dataEncerramentoBid;
-		url = "cadastroDataBid.php";
-		//console.log(url);
-	
-		$.ajax({
-		  url:url,
-		  type:'POST',
-		  dataType:'JSON',	
-		  data:{
-			'hoje':hojeData,
-			'dataEncerramentoBid':dataEncerramento,
-		},
-		  success:function(data)
-		  {
-		    	if (data.enviado == true){
-		        	//console.log(data.dataBid);		        	
-		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
-		        	//atualizaContador(data.dataPartida, data.dataBid);
-		        	console.log("CAsdatrodo com sucesso");
-		        	document.getElementById("id_teste").value = data.dataBid;
-		    		id  = data.id_partida;
-		    		console.log('id cadastraJogador' + id);
-		        	atualizaContador();
-		    	}else{
-		    		console.log("data encerrada");
-		    	} 
-		        
-		  },
-		  error:function(error)
-		  {
-		    console.log("Erro no ajax" + error);
-		  }
-	});
-  });
-});
-
-
-</script>
+</div>
 
