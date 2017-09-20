@@ -47,10 +47,17 @@ app.controller('HomeCtrl',function($scope, $rootScope, $location){
     $scope.nomes = $rootScope.dados;
     $rootScope.activetab = $location.path();
 });
-app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routeParams){
+app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routeParams,chamaJogador){
+           
+    chamaJogador.jogador().then(function(response){
+        $scope.dados = response.data.records;
+        
+    }); 
 
-	$scope.msg = 'Bem Vindo ao Bid';
-    $scope.cadastraData = function(dataLimite){
+     
+    console.log("Teste do " + angular.element(document.getElementById('meuController')).value);
+    $scope.msg = "Bem Vindo ao BID ";
+        $scope.cadastraData = function(dataLimite){
         //data limnite do bid
         $scope.dataLimite = dataLimite;            
         //data atual para ser comparada
@@ -67,11 +74,8 @@ app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routePa
            },
            url:'app/php/cadastroDataBid.php'
         })
-        .then(function(response){
-            console.log(response);
-            $scope.dados = response.data.records;
-            console.log($scope.dados);
-            atualizaContador();
+        .then(function(response){           
+            atualizaContador();            
         });
 
         }    
@@ -79,7 +83,7 @@ app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routePa
 });
 app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeParams){
 
-	
+	teste = $scope.mostra;
 	$scope.id_mes=$routeParams.id;
 	$scope.teste = $rootScope.dados;	
 
@@ -104,4 +108,11 @@ app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeP
    $rootScope.activetab = $location.path();
 
 	
+});
+app.factory('chamaJogador', function ($http){
+    return {
+        jogador: function(){
+            return $http.get('app/php/chamaJogadorBid.php');
+        }
+    };
 });

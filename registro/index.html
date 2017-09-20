@@ -63,14 +63,11 @@ function closeSidebar() {
     document.getElementById("mySidebar").style.display = "none";
 }
 
-
-
 // funcçao que inicializa o contador
-function atualizaContador() 
-{  
+function atualizaContador() {  
   /*var dataHoje = document.getElementById("data-jogo").value;
   */
-
+  
   var pegaData; 
   url = "atualizaData.php";
   $.ajax({
@@ -115,12 +112,14 @@ function atualizaContador()
       {
         document.getElementById('contador').innerHTML = faltam; 
           hojeTime = hojeTime  + 1000;
+          document.getElementById('meuController').value = "true";
           /*chama os jogadores do colisao*/
       }
       else
       {
           document.getElementById('contador').innerHTML = 'BID ENCERRADO!!!'; 
           document.getElementById('contador').style.background = 'red'; 
+          document.getElementById('meuController').value = "false";
         clearInterval(tempo);
         
 
@@ -132,25 +131,7 @@ function atualizaContador()
       {
         console.log("Erro no ajax" + error);
       }
-  });
-
-        url = 'chamaJogadorBid.php';
-          $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'JSON',
-            data: {param1: 'value1'},
-          })
-          .done(function(data) {
-           // console.log(data);            
-          })
-          .fail(function() {
-            console.log("error");
-          })
-          .always(function() {
-            console.log("complete");
-          });
-       
+  });  
           
       /*    var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
