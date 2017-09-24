@@ -24,7 +24,7 @@
 		width: 9.5%;
 	}
 </style>
-<body ng-app="app" onload="atualizaContador()">
+<body ng-app="app">
 
 <div ng-include="'app/views/menu.html'" ng-controller="meuTeste" id="mySidebar"></div>
 
@@ -63,11 +63,14 @@ function closeSidebar() {
     document.getElementById("mySidebar").style.display = "none";
 }
 
+
+var faltam = '';
 // funcçao que inicializa o contador
-function atualizaContador() {  
+function atualizaContador() 
+{  
   /*var dataHoje = document.getElementById("data-jogo").value;
   */
-  
+
   var pegaData; 
   url = "atualizaData.php";
   $.ajax({
@@ -86,6 +89,7 @@ function atualizaContador() {
   var futuro = new Date(dataFutura);
   //passa o segundos,milisegundos, hora, dia para inteiro
   id = data.id_partida;
+  console.log('Hotatio de agora' + hojeTime)
   if(hojeTime > 0){
 
     var tempo = setInterval(function(){
@@ -102,7 +106,7 @@ function atualizaContador() {
       mm = mm - (hh * 60);  
       hh = hh - (dd * 24);   
 
-      var faltam = 'Encerramento do Bid ';  
+      faltam = 'Encerramento do Bid ';  
       faltam += (dd && dd > 1) ? dd+' dias, ' : (dd==1 ? '1 dia, ' : '');  
       faltam += (toString(hh).length) ? hh+' hr, ' : '';  
       faltam += (toString(mm).length) ? mm+' min e ' : '';  
@@ -111,15 +115,15 @@ function atualizaContador() {
       if (dd+hh+mm+ss > 0) 
       {
         document.getElementById('contador').innerHTML = faltam; 
+        document.getElementById('meuTeste').style.display = 'block'; 
           hojeTime = hojeTime  + 1000;
-          document.getElementById('meuController').value = "true";
           /*chama os jogadores do colisao*/
       }
       else
       {
           document.getElementById('contador').innerHTML = 'BID ENCERRADO!!!'; 
           document.getElementById('contador').style.background = 'red'; 
-          document.getElementById('meuController').value = "false";
+          document.getElementById('meuTeste').style.display = 'none'; 
         clearInterval(tempo);
         
 
@@ -131,7 +135,25 @@ function atualizaContador() {
       {
         console.log("Erro no ajax" + error);
       }
-  });  
+  });
+
+        /*url = 'chamaJogadorBid.php';
+          $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'JSON',
+            data: {param1: 'value1'},
+          })
+          .done(function(data) {
+           // console.log(data);            
+          })
+          .fail(function() {
+            //console.log("error");
+          })
+          .always(function() {
+            //console.log("complete");
+          });
+       */
           
       /*    var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {

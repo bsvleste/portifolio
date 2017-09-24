@@ -1,13 +1,18 @@
+<div ng-init = "tempo()">
+	
 <h1> {{msg}}</h1>
 <form action="">	
 	<label for="data-limite">Data e Hora Limite</label>
 	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
 	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
 </form>
-<span id="contador"></span>
+<span id="contador" style= "">Bid Encerrado</span>
 <input type="text"  id="meuController" ng-model="teste" >
-<div ng-repeat = "nomes in dados">
-	<span id="nomes">Jogadores {{nomes.Nome}}</span>
+<div id="meuTeste">
+	
+<div ng-repeat = "nomes in dados" >
+	<span >Jogadores {{nomes.Nome}}</span>
 	
 </div>
-
+</div>
+</div>

@@ -47,15 +47,67 @@ app.controller('HomeCtrl',function($scope, $rootScope, $location){
     $scope.nomes = $rootScope.dados;
     $rootScope.activetab = $location.path();
 });
-app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routeParams,chamaJogador){
+app.controller('BidCtrl',function($interval,$scope, $rootScope, $location, $http, $routeParams,chamaJogador){
            
     chamaJogador.jogador().then(function(response){
         $scope.dados = response.data.records;
         
-    }); 
+    });
+    $http({
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+        },
+            url: 'app/php/atualizaData.php',
+            dataType:'JSON'
+    })
+    .then(function (response) {
+        //data do fim do Bid
+        dataFutura = new Date(response.data.dataBid);
+        //data atual do servidor para compara com a dataFutura
+        $scope.dataFutura = dataFutura;
+        dataHoje = new Date(response.data.dataAtual);
+        $scope.dataHoje = dataHoje;
+        });
 
+    $scope.tempo = function()
+    {
+        //transforma as datas em intero para comparaçao total
+        ss = parseInt(($scope.dataFutura - $scope.dataHoje) / 1000 );
+        //transforma em minutos
+        mm = parseInt(ss / 60);
+        //transforma em horas
+        hh = parseInt(mm / 60);
+        //transforma em dias
+        dd = parseInt(hh / 24);
+
+        ss = ss - (mm * 60);  
+        mm = mm - (hh * 60);  
+        hh = hh - (dd * 24);   
+        //string que mostra as horas minutos e segundos
+        faltam = "Encerramento do Bid ";
+        faltam += ( dd && dd > 1) ? dd + ' dias, ' : (dd == 1 ? '1 dia, ' : '');
+        faltam += (toString(hh).length) ? hh+' hr, ' : '';  
+        faltam += (toString(mm).length) ? mm+' min e ' : '';  
+        faltam += ss+' seg';   
+pesquisar coomo mostrar o segundos diminuinto
+        if(dd+hh+mm+ss > 0){
+            $scope.msg = faltam;
+            $scope.dataHoje =$scope.dataHoje + 1000;
+        }else{
+            $scope.msg = 'Bid encerrado';
+
+        }
      
-    console.log("Teste do " + angular.element(document.getElementById('meuController')).value);
+    }
+    $interval(function(){$scope.tempo(); console.log('Data' + $scope.dataHoje)},1000);
+
+    /*
+    $scope.valor = 2;
+    $interval(function () {
+      $scope.valor +=2;
+    }, 5000);*/
+    //$scope.valor = atualizaContador();
     $scope.msg = "Bem Vindo ao BID ";
         $scope.cadastraData = function(dataLimite){
         //data limnite do bid
@@ -75,11 +127,12 @@ app.controller('BidCtrl',function($scope, $rootScope, $location, $http, $routePa
            url:'app/php/cadastroDataBid.php'
         })
         .then(function(response){           
-            atualizaContador();            
+            //atualizaContador();
+
         });
 
         }    
-	
+    
 });
 app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeParams){
 
