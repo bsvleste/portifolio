@@ -7,7 +7,10 @@
 	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
 </form>
 <span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" ng-show="jogadores">
+<div ng-repeat = "nomes in dados" >
 	<span >Jogadores {{nomes.Nome}}</span>
+	<span >Bid {{nomes.Bid}}</span>
 </div>
+<button class="btn" ng-show="jogadores">Responder Bid</button>
+
 </div>

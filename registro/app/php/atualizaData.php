@@ -27,7 +27,6 @@ $somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
 $id = $somaId['id'];
 //seleciona os dados da ultima partida cadastrada
 $select = $conn->query("SELECT ID_PARTIDA, DATA_PARTIDA, DATABID, Now() as data from partida WHERE ID_PARTIDA = $id");
-
 //$select = $conn->query("SELECT * FROM partida WHERE ID_PARTIDA = $id ");	
 /*$outp = "";
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {

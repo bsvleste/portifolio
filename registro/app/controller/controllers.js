@@ -28,12 +28,12 @@ app.controller('BidCtrl',function($route,$interval,$scope, $rootScope, $location
     })
     .then(function (response) {
         //data do fim do Bid
+        console.log('teste '+ response);
         dataFutura = new Date(response.data.dataBid);
         //data atual do servidor para compara com a dataFutura
         $scope.dataFutura = dataFutura;
         dataHoje = new Date(response.data.dataAtual);
         $scope.dataHoje = dataHoje.getTime();
-
         });
         intervalo = $interval(tempo,1000);
     }
@@ -102,7 +102,8 @@ app.controller('BidCtrl',function($route,$interval,$scope, $rootScope, $location
         })
         .then(function(response){           
             //atualizaContador();
-            console.log('cadastrado com sucessso');
+
+            console.log('cadastrado com sucessso' + response.data.id);
             $route.reload();
         });
         }    

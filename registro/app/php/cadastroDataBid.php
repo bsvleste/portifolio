@@ -12,34 +12,26 @@ $dataEncerramentoBid = $request->dataEncerramentoBid;
 /*$dataPartida = $_POST['hoje'];
 $dataEncerramentoBid = $_POST['dataEncerramentoBid'];		
 */
+//INICIA o id 
 $id = 1;
+//conecta no banco de dados
 $conn = new mysqli("localhost", "root","", "colisao");
+//pega o ultimo id cadastrado
 $pegaId = $conn->query("SELECT MAX(ID_PARTIDA) as id FROM partida");
+//passsa para inteiro o ultimo id cadastrado
 $somaId = $pegaId->fetch_array(MYSQLI_ASSOC);
+//soma com o ultimo id para cadastrar um novo id
 $id += $somaId['id'];
+//cadastra uma nova data no banco de dados
 $result = $conn->query("INSERT INTO partida (ID_PARTIDA, DATA_PARTIDA, DATABID) 
 						VALUES('$id','$dataPartida','$dataEncerramentoBid')");
+//seleciona o nome e id dos jogadores
 $select = $conn->query("SELECT ID_JOGADOR, nome FROM jogador");	
-$outp = "";
+
 	while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
-	    if ($outp != "") {$outp .= ",";}
-	    $outp .= '{"id":"'  . $rs["ID_JOGADOR"] . '",';
-	    $outp .= '"nome":"'. $rs["nome"]     . '"}';
+    	$jogadorJogo = $conn->query("INSERT INTO jogador_jogo (ID_JOGADOR, ID_PARTIDA, Bid) VALUES (".$rs['ID_JOGADOR'].",'$id','s')");
 	}
-$outp ='{"records":['.$outp.']}';
-	/*if($select){
-		while($rs = $select->fetch_array(MYSQLI_ASSOC)) {
-			$data = array(
-				'enviado' => true,
-				'id_partida' => $rs['ID_PARTIDA'],
-				'dataPartida' => $rs['DATA_PARTIDA'],
-				'dataBid' => $rs['DATABID']
-				);
-			echo json_encode($data);
-		}		
-	}else{
-		$data = array('enviado'=>false);
-	}*/
+	$idPartida = array('id'=>$id);
+	echo json_encode($idPartida);
 $conn->close();
-echo($outp);
 ?>
