@@ -1,44 +1,7 @@
 
 app.controller('meuTeste',function($scope, $rootScope, $location){
 
-	$rootScope.dados = [{
-        id: 1,
-        nome: 'Janeiro'
-    }, {
-        id: 2,
-        nome: 'Fevereiro'
-    }, {
-    	id: 3,
-    	nome: 'Marco'
-    },{
-    	id: 4,
-    	nome: 'Abril'
-    },{
-    	id: 5,
-    	nome: 'Maio'
-    },{
-    	id: 6,
-    	nome: 'Junho'
-    },{
-    	id: 7,
-    	nome: 'Julho'
-    },{
-    	id: 8,
-    	nome:'Agosto'
-    },{
-    	id: 9,
-    	nome: 'Setembro'
-    },{
-    	id: 10,
-    	nome: 'Outubro'
-    },{
-    	id: 11,
-    	nome: 'Novembro'
-    },
-    	{
-        id: 12,
-        nome: 'Dezembro'
-    }];
+	$rootScope.dados=[{id:1,nome:'Janeiro'},{id:2,nome:'Fevereiro'},{id:3,nome:'Marco'},{id:4,nome:'Abril'},{id:5,nome:'Maio'},{id:6,nome:'Junho'},{id:7,nome:'Julho'},{id:8,nome:'Agosto'},{id:9,nome:'Setembro'},{id:10,nome:'Outubro'},{id:11,nome:'Novembro'},{id:12,nome:'Dezembro'}];
 	
 });
 app.controller('HomeCtrl',function($scope, $rootScope, $location){
@@ -47,13 +10,15 @@ app.controller('HomeCtrl',function($scope, $rootScope, $location){
     $scope.nomes = $rootScope.dados;
     $rootScope.activetab = $location.path();
 });
-app.controller('BidCtrl',function($interval,$scope, $rootScope, $location, $http, $routeParams,chamaJogador){
-           
+app.controller('BidCtrl',function($route,$interval,$scope, $rootScope, $location, $http, $routeParams,chamaJogador){
+     var intervalo;      
     chamaJogador.jogador().then(function(response){
         $scope.dados = response.data.records;
         
     });
-    $http({
+    $scope.start = function()
+    {
+        $http({
             method: 'GET',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -67,10 +32,18 @@ app.controller('BidCtrl',function($interval,$scope, $rootScope, $location, $http
         //data atual do servidor para compara com a dataFutura
         $scope.dataFutura = dataFutura;
         dataHoje = new Date(response.data.dataAtual);
-        $scope.dataHoje = dataHoje;
-        });
+        $scope.dataHoje = dataHoje.getTime();
 
-    $scope.tempo = function()
+        });
+        intervalo = $interval(tempo,1000);
+    }
+    
+    $scope.stop = function() {
+      $interval.cancel(intervalo);
+    };
+
+
+    function tempo()
     {
         //transforma as datas em intero para comparaçao total
         ss = parseInt(($scope.dataFutura - $scope.dataHoje) / 1000 );
@@ -90,31 +63,32 @@ app.controller('BidCtrl',function($interval,$scope, $rootScope, $location, $http
         faltam += (toString(hh).length) ? hh+' hr, ' : '';  
         faltam += (toString(mm).length) ? mm+' min e ' : '';  
         faltam += ss+' seg';   
-pesquisar coomo mostrar o segundos diminuinto
         if(dd+hh+mm+ss > 0){
             $scope.msg = faltam;
             $scope.dataHoje =$scope.dataHoje + 1000;
+            $scope.jogadores = true;
         }else{
-            $scope.msg = 'Bid encerrado';
-
+            $scope.msg = 'Bid Finalizado';
+            $scope.jogadores = false;
+            $scope.stop();
         }
      
     }
-    $interval(function(){$scope.tempo(); console.log('Data' + $scope.dataHoje)},1000);
-
+    $scope.start();
     /*
     $scope.valor = 2;
     $interval(function () {
       $scope.valor +=2;
     }, 5000);*/
     //$scope.valor = atualizaContador();
-    $scope.msg = "Bem Vindo ao BID ";
+    $scope.bemVindo = "Bem Vindo ao BID ";
         $scope.cadastraData = function(dataLimite){
         //data limnite do bid
         $scope.dataLimite = dataLimite;            
         //data atual para ser comparada
         $scope.data = new Date();       
         //ajax para cadastrar no bano de dados
+ 
         $http({
             method:'POST',
             data:{
@@ -128,9 +102,9 @@ pesquisar coomo mostrar o segundos diminuinto
         })
         .then(function(response){           
             //atualizaContador();
-
+            console.log('cadastrado com sucessso');
+            $route.reload();
         });
-
         }    
     
 });
@@ -152,7 +126,7 @@ app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeP
         url: 'app/php/mensalidadeJaneiro.php'
    	})
     .then(function (response) {
-        console.log(response);
+        //console.log(response);
     	$scope.names = response.data.records;
     	if($scope.mes == 1)
     		$scope.msg = "Janeiro";
