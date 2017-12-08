@@ -11,7 +11,9 @@ app.controller('HomeCtrl',function($scope, $rootScope, $location){
     $rootScope.activetab = $location.path();
 });
 app.controller('BidCtrl',function($route,$interval,$scope, $rootScope, $location, $http, $routeParams,chamaJogador){
-     var intervalo;      
+    
+    $scope.msg = "Bid Finalizado";
+    var intervalo;      
     chamaJogador.jogador().then(function(response){
         $scope.dados = response.data.records;
         

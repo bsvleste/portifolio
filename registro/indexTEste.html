@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> 
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+	a, a:link{
+		color: black;
+		text-decoration: none;
+		list-style-type: none;
+	}
+	a:active{
+		color: white;
+	}	
+	.img{
+		width: 9.5%;
+	}
+</style>
+<body ng-app="app" onload="atualizaContador()">
+
+<div ng-include="'app/views/menu.html'" ng-controller="meuTeste" id="mySidebar"></div>
+
+<header class="w3-bar w3-card w3-theme">
+  <div class="w3-padding w3-center">
+    <img class="img w3-circle" src="../registro/img/logoColisao.png" alt="avatar">
+  </div>
+</header>
+
+<div ng-view class="w3-container" ></div>
+
+<footer class="w3-bar w3-border w3-bottom w3-theme w3-margin-top">
+		
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/home" onclick="closeSidebar()"><i class="fa fa-home fa-2x"></i><div>Home</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item  w3-center">
+  	<a href="" onclick="openSidebar()" id="mySidebar"><i class="fa fa-money fa-2x"></i><div>Mensalidade</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/bid" onclick="closeSidebar()" class="w3-center"><i class="fa fa-futbol-o fa-2x"></i><div>BID</div></a>
+  </div>
+  
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controller/controllers.js"></script>
+
+<script>
+closeSidebar();
+function openSidebar() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function closeSidebar() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
+
+// funcçao que inicializa o contador
+function atualizaContador() {  
+  /*var dataHoje = document.getElementById("data-jogo").value;
+  */
+ 
+  var pegaData; 
+  url = "atualizaData.php";
+  $.ajax({
+      url:url,
+      type:'POST',
+      dataType:'JSON',  
+      success:function(data)
+      {
+        //console.log(data);  
+  var dataFutura = data.dataBid;
+  //data do dia para ser comparada com a data futura  
+  //console.log("data futura" + dataFutura);
+  var hoje = new Date(data.dataAtual);
+  var hojeTime = hoje.getTime();
+  //data que sera comparada  
+  var futuro = new Date(dataFutura);
+  //passa o segundos,milisegundos, hora, dia para inteiro
+  id = data.id_partida;
+  if(hojeTime > 0){
+
+    var tempo = setInterval(function(){
+
+      var ss = parseInt((futuro - hojeTime) / 1000);
+      //minutos
+      var mm = parseInt(ss / 60);  
+      //horas
+      var hh = parseInt(mm / 60);  
+      //dias
+      var dd = parseInt(hh / 24);   
+
+      ss = ss - (mm * 60);  
+      mm = mm - (hh * 60);  
+      hh = hh - (dd * 24);   
+
+      var faltam = 'Encerramento do Bid ';  
+      faltam += (dd && dd > 1) ? dd+' dias, ' : (dd==1 ? '1 dia, ' : '');  
+      faltam += (toString(hh).length) ? hh+' hr, ' : '';  
+      faltam += (toString(mm).length) ? mm+' min e ' : '';  
+      faltam += ss+' seg';   
+
+      if (dd+hh+mm+ss > 0) 
+      {
+        document.getElementById('contador').innerHTML = faltam; 
+          hojeTime = hojeTime  + 1000;
+          /*chama os jogadores do colisao*/
+      }
+      else
+      {
+          document.getElementById('contador').innerHTML = 'BID ENCERRADO!!!'; 
+          document.getElementById('contador').style.background = 'red'; 
+        clearInterval(tempo);
+        
+
+      }
+    },1000)
+  }
+      },
+      error:function(error)
+      {
+        console.log("Erro no ajax" + error);
+      }
+  });  
+          
+      /*    var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+          
+            console.log(this.responseText);
+            }
+          };
+          xhttp.open("GET", url, true);
+          xhttp.send();
+        */        
+  
+}
+
+/*function cadastraJogador(){
+  url = "cadastraJogador.php";
+    //console.log(url);
+  
+    $.ajax({
+      url:url,
+      type:'POST',
+      dataType:'JSON',   
+      success:function(data)
+      {
+          if (data.enviado == true){              
+              console.log("CAsdatrodo com sucesso Jogadores");              
+          }else{
+            console.log("data encerrada jogadores");
+          }             
+      },
+      error:function(error)
+      {
+        console.log("Erro no ajax" + error);
+      }
+  });
+}*/
+</script>
+</body>
