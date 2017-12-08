@@ -1,109 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt">
-<title>Colisao</title>
+<title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> 
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-
-.menu
-{
-  position: absolute;
-  z-index: 5;
-   background: #f04; 
-}
-.menu ul {
-  list-style-type:none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background: #f04; 
-}
-.menu li a 
-{
-  display: block;
-  text-decoration: none;
-  padding: 8px 16px;
-}
-.menu a 
-{
-  display: 
-}
-.img{
-  width: 12.5%;
-}
-/*css da navbar*/
-
-/*.nav li a:hover
-{
-    background:black;
-    color:#f6bb42;
-}
-.nav li a:focus
-{
-    background:black;
-    color:#f6bb42;
-}
-.active  a:link{
-    background:black;
-    color:#f6bb42;
-}*/
-.nav li a:hover, a:focus, a:link
-{
-    background: rgba(133, 0, 153, 0);
-    color:#870099;
-}
-.nav a {
-    color:black;
-}
-.active a {
-    color: #870099;
-}
+	a, a:link{
+		color: black;
+		text-decoration: none;
+		list-style-type: none;
+	}
+	a:active{
+		color: white;
+	}	
+	.img{
+		width: 9.5%;
+	}
 </style>
 <body ng-app="app">
 
 <div ng-include="'app/views/menu.html'" ng-controller="meuTeste" id="mySidebar"></div>
 
-<header class="navbar navbar-default"  id="mySidebar" style="background:#ffce54">
-  <div class="text-center">
-    <img class="img-circle img" src="../registro/img/logoColisao.png" alt="Logo Colisao" >
+<header class="w3-bar w3-card w3-theme">
+  <div class="w3-padding w3-center">
+    <img class="img w3-circle" src="../registro/img/logoColisao.png" alt="avatar">
   </div>
 </header>
 
-<div ng-view class="container-fluid" ></div>
+<div ng-view class="w3-container" ></div>
 
-<footer>
-  <nav>
-
-    <ul class="nav navbar-fixed-bottom " style="background: #ffce54;">     
-      <li routerLinkActive="active" class="text-center" >
-        <a href="#/home" class="col-xs-4"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
-          <div><strong>HOME</strong></div>
-        </a>
-      </li>
-      <li routerLinkActive="active" class="text-center">
-        <a href="#/bid" class="col-xs-4"><i class="fa fa-futbol-o fa-2x" arial-hidden="true"></i>
-          <div><strong>BID</strong></div>
-          </a>
-        </li>
-        <li *ngIf="admPermissao" routerLinkActive="active" class="text-center"> 
-          <a href="" class="col-xs-4" onclick="openSidebar()">
-            <i class="fa fa-money fa-2x"></i>
-            <div><strong>MENSALIDADE</strong></div>
-          </a>
-        </li>
-      </ul>
-</nav>
+<footer class="w3-bar w3-border w3-bottom w3-theme w3-margin-top">
+		
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/home" onclick="closeSidebar()"><i class="fa fa-home fa-2x"></i><div>Home</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item  w3-center">
+  	<a href="" onclick="openSidebar()" id="mySidebar"><i class="fa fa-money fa-2x"></i><div>Mensalidade</div></a>
+  </div>
+  <div class="w3-col s4 w3-bar-item w3-center">
+  	<a href="#/bid" onclick="closeSidebar()" class="w3-center"><i class="fa fa-futbol-o fa-2x"></i><div>BID</div></a>
+  </div>
   
 </footer>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
   <script src="app/app.js"></script>
   <script src="app/controller/controllers.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <script>
 closeSidebar();
 function openSidebar() {

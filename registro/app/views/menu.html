@@ -1,9 +1,7 @@
-<nav class="w3-sidebar w3-bar-block w3-border-right"  id="mySidebar">
-<div class="w3-container">
-  <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
-  <br>  
-</div>
-<a class="w3-bar-item w3-button" href="#/sobre/{{nome.id}}" ng-repeat="nome in dados" onclick="closeSidebar()">{{nome.nome}}</a>
+<nav class=" menu">
+<ul class="">
+ 	<span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
+	<li><a class="w3-bar-item w3-button" href="#/sobre/{{nome.id}}" ng-repeat="nome in dados" onclick="closeSidebar()">{{nome.nome}}</a></li>
+</ul>
 
 </nav>
-
