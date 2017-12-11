@@ -1,6 +1,8 @@
-<nav class=" menu">
+<nav class="menu">
+<div class="closeMenu">
+	<span onclick="closeSidebar()" class=""><i class="fa fa-window-close fa-3x" aria-hidden="true"></i></span>
+</div>
 <ul class="">
- 	<span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
 	<li><a class="w3-bar-item w3-button" href="#/sobre/{{nome.id}}" ng-repeat="nome in dados" onclick="closeSidebar()">{{nome.nome}}</a></li>
 </ul>
 
