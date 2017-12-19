@@ -23,8 +23,43 @@
 <div ng-view class="container-fluid" ></div>
 
 <footer>
+  <nav class="touch">  
+    <ul class="">
+    <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+      <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+      <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+    <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+    <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+    <li routerLinkActive="" class="" >
+        <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+    
+    
+</nav>
   <nav>
-
+  
     <ul class="nav navbar-fixed-bottom " style="background: #ffce54;">     
       <li routerLinkActive="active" class="text-center" >
         <a href="#/home" class="col-xs-4" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
@@ -37,12 +72,23 @@
           </a>
         </li>
         <li *ngIf="admPermissao" routerLinkActive="active" class="text-center"> 
-          <a href="" class="col-xs-4" onclick="openSidebar()">
+            <a href="#/mensalidade" class="col-xs-4" onclick="openSidebar()">
             <i class="fa fa-money fa-2x"></i>
             <div><strong>MENSALIDADE</strong></div>
           </a>
         </li>
+        <li routerLinkActive="active" class="text-center" >
+        <a href="#/home" class="col-xs-4" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
+      <li routerLinkActive="active" class="text-center" >
+        <a href="#/home" class="col-xs-4" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+          <div><strong>HOME</strong></div>
+        </a>
+      </li>
       </ul>
+  
 </nav>
   
 </footer>

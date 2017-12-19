@@ -9,7 +9,11 @@ app.config(function($routeProvider, $locationProvider)
       templateUrl : 'app/views/home.html',
       controller     : 'HomeCtrl',
    })
- 
+   //rota paramensalidade
+   .when('/mensalidade', {
+      templateUrl : 'app/views/mensalidade.html',
+      controller     : 'MensalidadeCtrl',
+   })
    // para a rota '/sobre', carregaremos o template sobre.html e o controller 'SobreCtrl'
    .when('/sobre/:id', {
       templateUrl : 'app/views/sobre.html',

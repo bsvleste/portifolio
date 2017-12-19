@@ -4,6 +4,10 @@ app.controller('meuTeste',function($scope, $rootScope, $location){
 	$rootScope.dados=[{id:1,nome:'Janeiro'},{id:2,nome:'Fevereiro'},{id:3,nome:'Marco'},{id:4,nome:'Abril'},{id:5,nome:'Maio'},{id:6,nome:'Junho'},{id:7,nome:'Julho'},{id:8,nome:'Agosto'},{id:9,nome:'Setembro'},{id:10,nome:'Outubro'},{id:11,nome:'Novembro'},{id:12,nome:'Dezembro'}];
 	
 });
+app.controller('MensalidadeCtrl',function($scope, $rootScope, $location){
+
+    $scope.msg = "Bem Vindo a MensalidadeCtrl";    
+});
 app.controller('HomeCtrl',function($scope, $rootScope, $location){
 
     $scope.msg = 'ola bebe';

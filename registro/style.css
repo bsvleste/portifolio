@@ -41,6 +41,25 @@ body
 .img{
   width: 12.5%;
 }
+.touch
+{
+  background-color: #ffce54;
+  width: auto;
+  
+}
+
+.touch ul {
+  list-style: none;
+  width: 1000px;
+  margin-right: 400px; 
+}
+.touch ul li{
+  display: inline;
+  padding: 10px 60px;
+}
+.touch ul li a {
+  display: inline-block;
+}
 /*css da navbar*/
 
 /*.nav li a:hover
@@ -86,5 +105,17 @@ body
   {
     width: 80%;
   }
+  .touch
+  {
+    overflow: scroll;
+    touch-action:pan-x;
+  }
+  .touch ul
+  {
+    margin-left: - px;
+  }
+  .touch ul li{
+    padding: 0px 20px;
+}
   
 }
