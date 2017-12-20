@@ -1,12 +1,19 @@
+/*fudo do app*/
 body
 {
   background: #434a54;
 }
+/*div onde fica o botao para iniciar o cadastro da bid*/
+.cadastroBid{
+  height: 60px;
+}
+/*botao de fechar o menu*/
 .closeMenu
 {
   height: 40px;
   background: #f6bb42;
 }
+/*span de dentro do menu*/
 .closeMenu>span
 {
   float: right;
@@ -17,7 +24,6 @@ body
 {
   position: absolute;
   z-index: 5;
-  background: #f04;
   height: 100%; 
   width: 40%;
   background: #656d78;
@@ -38,14 +44,16 @@ body
 {
   background: #434a54;
 }
+/*logo da navbar principal*/
 .img{
   width: 12.5%;
 }
+/*
+css para menu com touch-action
 .touch
 {
   background-color: #ffce54;
   width: auto;
-  
 }
 
 .touch ul {
@@ -60,6 +68,8 @@ body
 .touch ul li a {
   display: inline-block;
 }
+*/
+
 /*css da navbar*/
 
 /*.nav li a:hover
@@ -76,6 +86,7 @@ body
     background:black;
     color:#f6bb42;
 }*/
+/*menu fixo no bottom*/
 .nav li a:hover, a:focus, a:link
 {
     background: rgba(133, 0, 153, 0);
@@ -84,9 +95,11 @@ body
 .nav a {
     color:black;
 }
+/*link ativo*/
 .active a {
     color: #870099;
 }
+/*div onde sera mostrado os jogadores cadastrado no bid*/
 .bid
 {
   background:#f04;
@@ -95,10 +108,57 @@ body
   touch-action:pan-y;
   margin-bottom: 70px;
 }
+/*margem da div de dentro da div.bid*/
 .scroll
 {
   margin-bottom:10px; 
 }
+/*botao para registrar o usuario no bid*/
+.btn-registro
+{
+  z-index: 10;
+  position: fixed;
+  left: 80%;
+  bottom: 15%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: green;
+  border: 1px solid green;
+}
+/*deixa o botao do bootstrap 100%*/
+.btn-lg
+{
+  width: 100%;
+}
+/*fundo do form*/
+.form
+{
+  background-color: white;
+  width: 90%;
+  height: 150px;
+  z-index: 10;
+  position: absolute;
+}
+/*span dentro do form*/
+.form > span
+{
+  cursor: pointer;
+}
+/*cadastro do usuario*/
+.cadastroUsuario
+{
+  height: 300px;
+  width: 90%;
+  position: fixed;
+  z-index: 11;
+  background-color: #c89;
+}
+.cadastroUsuario > span
+{
+  cursor: pointer;
+}
+/*para dispositivos menores que 480px*/
 @media screen and (max-width: 480px)
 {
   .menu
@@ -114,8 +174,16 @@ body
   {
     margin-left: - px;
   }
-  .touch ul li{
+  .touch ul li
+  {
     padding: 0px 20px;
-}
-  
+  } 
+  .bid{
+    height:400px; 
+  }  
+  .btn-registro
+  {
+    width: 50px;
+    height: 50px;
+  }
 }

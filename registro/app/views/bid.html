@@ -1,69 +1,243 @@
+<div class="cadastroBid">
+	<button class="btn btn-primary btn-lg" onclick="openForm()">Cadastrar Bid</button>
+</div>
+<div class="form"  id="myForm">
+	<span onclick="closeForm()">Close X </span>
+	<form action="" ng-hide="jogadores">	
+		<label for="data-limite">Data e Hora Limite</label>
+		<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+		<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+	</form>
+</div>
+
+<button class="btn-registro" onclick="openBid()">send</button>
+
+<div class="cadastroUsuario" id="myBid">
+	<span onclick="closeBid()">Close X</span>
+	<div>
+	<span>Nome</span>
+		<input type="text">
+	</div>
+	<div>
+	<span>Nome</span>
+		<input type="text">
+	</div>
+	<div>
+	<span>Nome</span>
+		<input type="text">
+	</div>
+</div>
 <div class="bid">
-<div class="scroll">
-	
-<h1> {{bemVindo}}</h1>
-<form action="" ng-hide="jogadores">	
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-</form>
-<span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" >
-	<span >Jogadores {{nomes.Nome}}</span>
-	<span >Bid {{nomes.Bid}}</span>
-</div>
-<button class="btn" ng-show="jogadores">Responder Bid</button>
+	<div class="scroll">
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
 
-<h1> {{bemVindo}}</h1>
-<form action="" ng-hide="jogadores">	
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-</form>
-<span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" >
-	<span >Jogadores {{nomes.Nome}}</span>
-	<span >Bid {{nomes.Bid}}</span>
-</div>
-<button class="btn" ng-show="jogadores">Responder Bid</button>
-<h1> {{bemVindo}}</h1>
-<form action="" ng-hide="jogadores">	
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-</form>
-<span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" >
-	<span >Jogadores {{nomes.Nome}}</span>
-	<span >Bid {{nomes.Bid}}</span>
-</div>
-<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
 
-<h1> {{bemVindo}}</h1>
-<form action="" ng-hide="jogadores">	
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-</form>
-<span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" >
-	<span >Jogadores {{nomes.Nome}}</span>
-	<span >Bid {{nomes.Bid}}</span>
-</div>
-<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
 
-<h1> {{bemVindo}}</h1>
-<form action="" ng-hide="jogadores">	
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-	<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-</form>
-<span id="contador" style= "">{{msg}}</span>
-<div ng-repeat = "nomes in dados" >
-	<span >Jogadores {{nomes.Nome}}</span>
-	<span >Bid {{nomes.Bid}}</span>
-</div>
-<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
 
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button><h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+		<h1> {{bemVindo}}</h1>
+		<form action="" ng-hide="jogadores">	
+			<label for="data-limite">Data e Hora Limite</label>
+			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
+			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
+		</form>
+		<span id="contador" style= "">{{msg}}</span>
+
+		<div ng-repeat = "nomes in dados" >
+			<span >Jogadores {{nomes.Nome}}</span>
+			<span >Bid {{nomes.Bid}}</span>
+		</div>
+		<button class="btn" ng-show="jogadores">Responder Bid</button>
+	</div>
 </div>
-</div>
+<script>
+closeForm();
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+closeBid();
+function openBid() {
+    document.getElementById("myBid").style.display = "block";
+}
+function closeBid() {
+    document.getElementById("myBid").style.display = "none";
+}
+</script>
