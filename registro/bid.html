@@ -1,209 +1,147 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-	<title>Bid Colisão</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+<html>
+<style>
+/* fundo do slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+      
+}
+/*esconde o chekbox*/
+.switch input {display:none;}
 
-
-<body onload="atualizaContador()">
-<h1> pesquizar como chamar duas funçoes no onload do javascript</h1>
-<nav>
-	<ul>
-		<!--<li><button onclick="atualizaContador()">Cadastra</button></li>-->
-		<li><button id="btn-cadastra">Cadastra</button></li>
-		<li><button>Pesquisar</button></li>
-	</ul>
-</nav>
-<form action="">
-	<label for="data-jogo">Data do Jogo</label>
-	<input type="DateTime-local" id="data-jogo" name="data-jogo">
-	<label for="data-limite">Data e Hora Limite</label>
-	<input type="DateTime-local" name="data-limite" id="data-limite">
-	<input type="text" id="id_teste">
-	<button >Cadastar</button>
-</form>
-Faltam <span id="contador"></span>
-<span id="nomes"></span>
-
-</body>
-
-<script>
-
-$(document).ready(function(){
-	
-	$('#btn-cadastra').click(function(){		
-		
-		var dataFutura = document.getElementById("data-limite").value;
-		//data do dia para ser comparada com a data futura	
-		var hojeData = new Date();	
-		//data que sera comparada  
-		var dataEncerramento = new Date(dataFutura);
-		//var hoje = hojeData.getDate()+"/"+hojeData.getMonth()+"/"+hojeData.getFullYear()+"-"+hojeData.getTime();
-		//var dataEncerramentoBid = dataEncerramento.getDate()+"/"+dataEncerramento.getMonth()+"/"+dataEncerramento.getFullYear()+"-"+dataEncerramento.getTime();
-		 
-	
-		//url = "/sitecolisao/public/adm/mensalidade/receber/"+cat_id+"/"+valor+"/"+mes;
-		//url = "cadastroDataBid.php?hoje="+hoje+"&dataEncerramentoBid="+dataEncerramentoBid;
-		url = "cadastroDataBid.php";
-		//console.log(url);
-	
-		$.ajax({
-		  url:url,
-		  type:'POST',
-		  dataType:'JSON',	
-		  data:{
-			'hoje':hojeData,
-			'dataEncerramentoBid':dataEncerramento,
-		},
-		  success:function(data)
-		  {
-		    	if (data.enviado == true){
-		        	//console.log(data.dataBid);		        	
-		        	//atualizaContador(data.records.dataPartida, data.records.dataBid);
-		        	//atualizaContador(data.dataPartida, data.dataBid);
-		        	console.log("CAsdatrodo com sucesso");
-		        	document.getElementById("id_teste").value = data.dataBid;
-		    		id  = data.id_partida;
-		    		console.log('id cadastraJogador' + id);
-		        	atualizaContador();
-		    	}else{
-		    		console.log("data encerrada");
-		    	} 
-		        
-		  },
-		  error:function(error)
-		  {
-		    console.log("Erro no ajax" + error);
-		  }
-	});
-  });
-});
-
-// funcçao que inicializa o contador
-function atualizaContador() 
-{  
-	/*var dataHoje = document.getElementById("data-jogo").value;
-	*/
-
-	var pegaData;	
-	url = "atualizaData.php";
-	$.ajax({
-		  url:url,
-		  type:'POST',
-		  dataType:'JSON',	
-		  success:function(data)
-		  {
-		  	//console.log(data);	
-		  	var dataFutura = data.dataBid;
-	//data do dia para ser comparada com a data futura	
-	//console.log("data futura" + dataFutura);
-	var hoje = new Date(data.dataAtual);
-	var hojeTime = hoje.getTime();
-	//data que sera comparada  
-	var futuro = new Date(dataFutura);
-	//passa o segundos,milisegundos, hora, dia para inteiro
-	id = data.id_partida;
-	if(hojeTime > 0){
-
-		var tempo = setInterval(function(){
-
-			var ss = parseInt((futuro - hojeTime) / 1000);
-			//minutos
-			var mm = parseInt(ss / 60);  
-			//horas
-			var hh = parseInt(mm / 60);  
-			//dias
-			var dd = parseInt(hh / 24);   
-
-			ss = ss - (mm * 60);  
-			mm = mm - (hh * 60);  
-			hh = hh - (dd * 24);   
-
-			var faltam = '';  
-			faltam += (dd && dd > 1) ? dd+' dias, ' : (dd==1 ? '1 dia, ' : '');  
-			faltam += (toString(hh).length) ? hh+' hr, ' : '';  
-			faltam += (toString(mm).length) ? mm+' min e ' : '';  
-			faltam += ss+' seg';   
-
-			if (dd+hh+mm+ss > 0) 
-			{
-			 	document.getElementById('contador').innerHTML = faltam;	
-			  	hojeTime = hojeTime  + 1000;
-			}
-			else
-			{
-			  	document.getElementById('contador').innerHTML = 'CHEGOU!!!!';	
-			  	document.getElementById('contador').style.background = 'red';	
-			 	clearInterval(tempo);
-
-			}
-		},1000)
-	}
-		  },
-		  error:function(error)
-		  {
-		    console.log("Erro no ajax" + error);
-		  }
-	});
-
-				url = 'chamaJogadorBid.php';
-			  	//console.log('id da partida' + id); 
-			  	
-			 
-
-			  	$.ajax({
-			  		url: url,
-			  		type: 'POST',
-			  		dataType: 'JSON',
-			  		data: {param1: 'value1'},
-			  	})
-			  	.done(function(data) {
-			  		console.log(data);			  		
-			  	})
-			  	.fail(function() {
-			  		console.log("error");
-			  	})
-			  	.always(function() {
-			  		console.log("complete");
-			  	});
-			 
-			  	
-			/*  	var xhttp = new XMLHttpRequest();
-  				xhttp.onreadystatechange = function() {
-    			if (this.readyState == 4 && this.status == 200) {
-     			
-     				console.log(this.responseText);
-    				}
-  				};
-  				xhttp.open("GET", url, true);
-  				xhttp.send();
-			  */				
-	
+/* O slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-/*function cadastraJogador(){
-	url = "cadastraJogador.php";
-		//console.log(url);
-	
-		$.ajax({
-		  url:url,
-		  type:'POST',
-		  dataType:'JSON',	 
-		  success:function(data)
-		  {
-		    	if (data.enviado == true){		        	
-		        	console.log("CAsdatrodo com sucesso Jogadores");		        	
-		    	}else{
-		    		console.log("data encerrada jogadores");
-		    	} 		        
-		  },
-		  error:function(error)
-		  {
-		    console.log("Erro no ajax" + error);
-		  }
-	});
-}*/
-</script>
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* On mouse-over, add a grey background color */
+.switch:hover input ~ .slider {
+    background-color: #ccc;
+}
+/* When the radio button is checked, add a blue background */
+.switch input:checked ~ .slider {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.slider:after {
+  position: absolute;
+  content: "";
+  height: 206px;
+  width: 206px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.switch input:checked ~ .slider:after {
+    transform: translateX(26px);
+}
+
+/* Style the indicator (dot/circle) */
+.switch .slider:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/*esconde o chekbox*/
+.switch input {display:none;}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 180px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+</style>
+<body>
+<label class="switch">
+			<!--checkbox para o toogle -->
+<input type="radio" name="gender" value="male" >
+<span class="slider round"></span>
+</label>
+
+<label class="switch">
+			<!--checkbox para o toogle -->
+<input type="radio" name="gender" value="male" >
+<span class="slider round"></span>
+</label>
+
+<label class="switch">
+			<!--checkbox para o toogle -->
+<input type="radio" name="gender" value="male" >
+<span class="slider round"></span>
+</label>
+
+<h1>Custom Radio Buttons</h1>
+<label class="switch">
+  <input type="radio" checked="checked" name="radio">
+  <span class="slider round"></span>
+</label>
+<label class="switch">
+  <input type="radio" name="radio">
+  <span class="slider round"></span>
+</label>
+<label class="switch">
+  <input type="radio" name="radio">
+  <span class="slider round"></span>
+</label>
+<label class="switch">
+  <input type="radio" name="radio">
+  <span class="slider round"></span>
+</label>
+</body>
+</html>
