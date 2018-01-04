@@ -1,4 +1,4 @@
- <div class="w3-row-padding w3-margin-bottom">
+ <!--<div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter" ng-repeat="x in names">
       <div class="w3-container w3-card-4 w3-padding-16">        
         <div class="w3-row">
@@ -20,4 +20,34 @@
           <br>          
       </div>
     </div>   
+  -->
+  <div class="row">
+  <div class="w3-col m4 12" ng-repeat="x in names" >
+    <div class="w3-padding-4 m4 12" >
+          <div class="w3-col s3">
+              <div class='w3-container {{x.Status == "PENDENTE" ? "w3-red" : "w3-green" }}' data-role="">
+                  <h5 class="">{{x.Name}}</h5>
+              </div>
+            <br>
+          </div>
+          <div class="w3-col s5">
+              <input type="text" name="" class="w3-input valor" placeholder="Valor" value=''>
+              <input type="hidden" class="mes" value="">
+
+              <input type="text" name="" class="w3-input valor" placeholder="Valor" value='' disabled>
+              <input type="hidden" class="mes" value="">
+          </div>
+          <div class="w3-col s4">
+            <a href='{{ url("adm/mensalidade/alterar/{$mes->id_mensalidade}") }}' class="w3-show-inline-block w3-btn" data-toggle="tooltip" data-placement="bottom" title="Alterar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a href='#'  class="js-status w3-btn" data-toggle="tooltip" data-placement="bottom"
+              title="status" value='' data-teste ="">
+                <i class="fa fa-check-square-o" id="js-status" aria-hidden="true" ></i>
+              </a>
+          </div>
+      </div>
+    </div>
   
+</div>
+
+</div>
+<h1>REFAZER ESSSE LAYOUT UTILIZANDO O BOOTSTRAP</h1>
