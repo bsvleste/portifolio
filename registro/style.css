@@ -3,9 +3,16 @@ body
 {
   background: #434a54;
 }
+/*conometro do bid*/
+.conometro{
+  color:red;
+  font:25px bold;
+
+}
 /*div onde fica o botao para iniciar o cadastro da bid*/
 .cadastroBid{
   height: 60px;
+  background: white;
 }
 /*botao de fechar o menu*/
 .closeMenu
@@ -18,6 +25,32 @@ body
 {
   float: right;
   cursor: pointer;
+}
+/*alinha REsposta*/
+.alinhaResposta
+{
+  height: 90%;
+  width: 90%;
+  margin: 5%;
+}
+.central
+{
+  float: right;
+  margin-right: 20%;
+  margin-top: 5%;
+}
+/*check*/
+.check
+{
+  color: green;
+}
+.DontCheck
+{
+  color: red;
+}
+.dm
+{
+  color:orange;
 }
 /*menu lateral*/
 .menu
@@ -117,7 +150,6 @@ css para menu com touch-action
 /*div onde sera mostrado os jogadores cadastrado no bid*/
 .bid
 {
-  background:#f04;
   height: auto;
   overflow: scroll;
   touch-action:pan-y;
@@ -126,7 +158,9 @@ css para menu com touch-action
 /*margem da div de dentro da div.bid*/
 .scroll
 {
-  margin-bottom:10px; 
+  margin-bottom:10px;
+  background: white; 
+
 }
 /*botao para registrar o usuario no bid*/
 .btn-registro
@@ -141,39 +175,52 @@ css para menu com touch-action
   background-color: green;
   border: 1px solid green;
 }
+/*muda a cor do btn-primary*/
+.btn-warning
+{
+  background-color: #ffce54;
+  border-color: #ffce54;
+}
+
 /*deixa o botao do bootstrap 100%*/
 .btn-lg
 {
   width: 100%;
 }
 /*fundo do form*/
-.form
+.formulario
 {
   background-color: white;
-  width: 90%;
-  height: 150px;
+  width: 95%;
+  height: 100%;
   z-index: 10;
   position: absolute;
 }
 /*span dentro do form*/
-.form > span
+.formulario > span
 {
   cursor: pointer;
 }
 /*cadastro do usuario*/
 .cadastroUsuario
 {
-  height: 300px;
-  width: 90%;
+  height: 450px;
+  width: 95%;
   position: fixed;
   z-index: 11;
-  background-color: #c89;
+  background-color: #ecf0f1;
 }
 .cadastroUsuario > span
 {
   cursor: pointer;
 }
-
+/*resultado do bid*/
+.resultado
+{
+  margin-top: 10px;
+  height: 90px;
+  background: white;
+}
 /* fundo do slider */
 .switch {
   position: relative;
@@ -286,6 +333,11 @@ input:checked + .slider:before {
   {
     width: 80%;
   }
+  .conometro{
+  color:red;
+  font:18px bold;
+
+}
   .touch
   {
     overflow: scroll;

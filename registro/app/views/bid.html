@@ -1,54 +1,85 @@
-<div class="cadastroBid">
-	<button class="btn btn-primary btn-lg" onclick="openForm()">Cadastrar Bid</button>
-</div>
-<div class="form"  id="myForm">
-	<span onclick="closeForm()">Close X </span>
-	<form action="" ng-hide="jogadores">	
-		<label for="data-limite">Data e Hora Limite</label>
-		<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-		<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-	</form>
-</div>
-
-<button class="btn-registro" onclick="openBid()">send</button>
-
 <!-- formulario de cadastro de usuario-->
 <div class="cadastroUsuario" id="myBid">
-	<span onclick="closeBid()">Close X</span>
-	<div>
-		<form action="">
-			<label class="switch">
-			  <input type="radio" checked="checked" name="radio">
-			  <span class="slider round"></span>
-			</label>
-			<label class="switch">
-			  <input type="radio" name="radio">
-			  <span class="slider round"></span>
-			</label>
-			<label class="switch">
-			  <input type="radio" name="radio">
-			  <span class="slider round"></span>
-			</label>
+	<div class="closeMenu">
+		<span onclick="closeBid()" class=""><i class="fa fa-window-close fa-3x" aria-hidden="true"></i></span>
+	</div>
+<div>
+	<form action="">
+		<div class="alinhaResposta">
+			<div class="form-group">
+				<span class="check"><i class="fa fa-check-circle fa-5x" aria-hidden="true"></i></span>
+				<div class="central">
+					<label class="switch">
+					  <input type="radio" checked="checked" name="radio">
+					  <span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<span  class="dm"><i class="fa fa-ambulance fa-5x" aria-hidden="true"></i></span>
+				<div class="central">
+					<label class="switch">
+					  <input type="radio" checked="checked" name="radio">
+					  <span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<span class="DontCheck"><i class="fa fa-times-circle fa-5x" aria-hidden="true"></i></span>
+				<div class="central">
+					<label class="switch">
+					  <input type="radio" checked="checked" name="radio">
+					  <span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-warning btn-lg">Enviar</button>
 		</form>
 	</div>
 </div>
 <!--fim do  formulario de cadastro de usuario-->
 
+<div class="formulario"  id="myForm">
+	<div class="closeMenu">
+		<span onclick="closeForm()" class=""><i class="fa fa-window-close fa-3x" aria-hidden="true"></i></span>
+	</div>
+
+	<form action="">	
+			<div class="form-group">
+				<label for="data-limite">Selecione uma Data e Um Horario</label>
+				<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite" class="form-control">	
+			</div>
+			
+			<button class="btn btn-warning btn-lg" ng-click="cadastraData(dataLimite)">Cadastar</button>
+	</form>
+</div>
+<div class="cadastroBid">
+	<button class="btn btn-warning btn-lg" onclick="openForm()" ng-show="!jogadores">Cadastrar Bid</button>
+	<p id="contador" class="text-center conometro">{{msg}}</p>
+</div>
+
+<button class="btn-registro" onclick="openBid()" ng-show="jogadores">send</button>
+
+
 <div class="bid">
 	<div class="scroll">
-		<h1> {{bemVindo}}</h1>
-		<form action="" ng-hide="jogadores">	
-			<label for="data-limite">Data e Hora Limite</label>
-			<input type="DateTime-local" name="data-limite" id="data-limite" ng-model="dataLimite">	
-			<button  ng-click="cadastraData(dataLimite)">Cadastar</button>
-		</form>
-		<span id="contador" style= "">{{msg}}</span>
-
 		<div ng-repeat = "nomes in dados" >
-			<span >Jogadores {{nomes.Nome}}</span>
-			<span >Bid {{nomes.Bid}}</span>
+			{{nomes.Nome}}	
+			<span><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></span>
+			<span  class="dm"><i class="fa fa-ambulance fa-5x" aria-hidden="true"></i></span>
 		</div>
-		<button class="btn" ng-show="jogadores">Responder Bid</button>
+	</div>		
+	<div class="resultado">			
+		<div class="confirmado">
+			5<span><i class="fa fa-check-circle fa-2x" aria-hidden="true"></i></span>
+		</div>
+		<div class="confirmado">
+			2<span><i class="fa fa-ambulance fa-2x" aria-hidden="true"></i></span>
+		</div>
+		<div class="confirmado">
+			1<span><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></span>
+		</div>
 	</div>
 </div>
 <script>
