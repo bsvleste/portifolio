@@ -51,3 +51,15 @@
 
 </div>
 <h1>REFAZER ESSSE LAYOUT UTILIZANDO O BOOTSTRAP</h1>
+
+<div class="cont">
+  <div class="mensalidade">    
+      <label for="valor" class="pago"><h5>Bruno</h5></label>
+      <input class="" type="text" name="" id="valor" placeholder="Valor">
+      <a href='{{ url("adm/mensalidade/alterar/{$mes->id_mensalidade}") }}' class="w3-show-inline-block w3-btn" data-toggle="tooltip" data-placement="bottom" title="Alterar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a href='#'  class="js-status w3-btn" data-toggle="tooltip" data-placement="bottom"
+      title="status" value='' data-teste ="">
+      <i class="fa fa-check-square-o" id="js-status" aria-hidden="true" ></i>
+      </a>
+  </div>
+</div>

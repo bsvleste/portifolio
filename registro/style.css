@@ -325,7 +325,42 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/*mensalidade*/
+.cont
+{
+  height: 100px;
+  box-shadow: 5px 10px 8px #0025;
+  width: 100%;
+    
+}
+.pago
+{
+  background: green;
 
+}
+
+.pendente
+{
+  background: red;
+}
+.mensalidade>label
+{
+  width: 33%;  
+  color:white;  
+}
+.mensalidade>input
+{
+  width: 33%;
+  padding: 7px;
+position: relative;
+left: -5.5px;
+
+}
+.valor
+{
+  width: 33%;
+  float: right;
+}
 /*para dispositivos menores que 480px*/
 @media screen and (max-width: 480px)
 {
