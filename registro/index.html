@@ -23,6 +23,24 @@
 <div ng-view class="container" ></div>
 
 <footer>
+
+<div class="scrollMenu nav navbar-fixed-bottom " style="background: #ffce54;">
+  <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+  <div><strong>HOME</strong></div>
+  </a>
+  <a href="#/bid" class="" onclick="closeSidebar()"><i class="fa fa-futbol-o fa-2x" arial-hidden="true"></i>
+  <div><strong>BID</strong></div>
+  </a>
+  <a href="#/mensalidade" class="" onclick="openSidebar()"><i class="fa fa-money fa-2x" arial-hidden="true"></i>
+  <div><strong>Mensalidade</strong></div>
+  </a>
+  <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+  <div><strong>Noticias</strong></div>
+  </a>
+  <a href="#/home" class="" onclick="closeSidebar()"><i class="fa fa-home fa-2x" arial-hidden="true"></i>
+  <div><strong>Calendario</strong></div>
+  </a>
+</div>
 <!--
   Pesquisar como fazer um menu rolante usando a classe touch-action do css e javascript
   <nav class="touch">  
@@ -60,7 +78,6 @@
     
     
 </nav>
--->
   <nav>  
     <ul class="nav navbar-fixed-bottom " style="background: #ffce54;">     
       <li routerLinkActive="active" class="text-center" >
@@ -81,6 +98,7 @@
         </li>
       </ul>  
 </nav>
+-->
   
 </footer>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>

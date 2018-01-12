@@ -361,6 +361,25 @@ left: -5.5px;
   width: 33%;
   float: right;
 }
+/*scrollMenu com panx*/
+div.scrollMenu
+{
+  background-color: #FBF201;
+  overflow: auto;
+  white-space: nowrap;
+}
+div.scrollMenu a
+{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+div.scrollMenu a:hover
+{
+  background-color: #777;
+}
 /*para dispositivos menores que 480px*/
 @media screen and (max-width: 480px)
 {
@@ -393,5 +412,11 @@ left: -5.5px;
   {
     width: 50px;
     height: 50px;
+  }
+  div.scrollMenu a
+  {
+    width: 120px;
+    height: 70px;
+  
   }
 }
