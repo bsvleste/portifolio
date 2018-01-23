@@ -51,20 +51,21 @@
 </div>
 <h1>REFAZER ESSSE LAYOUT UTILIZANDO O BOOTSTRAP</h1>
   -->
-
-<div class="row">  
-  <div class="col-sm-4" ng-repeat="x in names">
-    <div class="cont">    
-      <div class="mensalidade">    
-        <label for="valor" class='{{x.Status == "PENDENTE" ? "pago" : "pendente" }}'><h5>{{x.Name}}</h5></label>
-        <input class="" type="text" name="" id="valor" placeholder="Valor">
-        <a href='{{ url("adm/mensalidade/alterar/{$mes->id_mensalidade}") }}' class="link" data-toggle="tooltip" data-placement="bottom" title="Alterar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        <a href='#'  class="js-status link" data-toggle="tooltip" data-placement="bottom"
-        title="status" value='' data-teste ="">
-        <i class="fa fa-check-square-o" id="js-status" aria-hidden="true" ></i>
-        </a>
+<div class="bid">
+  <div class="row">  
+    <div class="col-sm-6" ng-repeat="x in names">
+      <div class="cont">    
+        <div class="mensalidade">    
+          <label for="valor" class='{{x.Status == "PENDENTE" ? "pago" : "pendente" }}'><h5>{{x.Name}}</h5></label>
+          <input class="" type="text" name="" id="valor" placeholder="Valor">
+          <a href='{{ url("adm/mensalidade/alterar/{$mes->id_mensalidade}") }}' class="link" data-toggle="tooltip" data-placement="bottom" title="Alterar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          <a href='#'  class="js-status link" data-toggle="tooltip" data-placement="bottom"
+          title="status" value='' data-teste ="">
+          <i class="fa fa-check-square-o" id="js-status" aria-hidden="true" ></i>
+          </a>
+        </div>
       </div>
+      <br>
     </div>
-    <br>
   </div>
 </div>

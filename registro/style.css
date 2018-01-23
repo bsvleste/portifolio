@@ -151,9 +151,9 @@ css para menu com touch-action
 .bid
 {
   height: auto;
-  overflow: scroll;
+  /*overflow: scroll;*/
   touch-action:pan-y;
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 /*margem da div de dentro da div.bid*/
 .scroll
@@ -326,9 +326,14 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /*mensalidade*/
+.sobre
+{
+
+}
 .link
 {
-  padding: 15px;   
+  box-shadow: 1px 1px 8px 1px #0025;
+  padding: 11px 5%;   
 }
 .link i
 {
@@ -336,7 +341,11 @@ input:checked + .slider:before {
 }
 .link:hover
 {
-    box-shadow: 5px 10px 8px #0025; 
+    /*box-shadow: 5px 10px 8px #0025;*/
+  -webkit-box-shadow: inset 1px 1px 5px 5px #0025;
+  -moz-box-shadow: inset 1px 1px 5px 5px #0025;
+  box-shadow: inset 1px 1px 5px 5px #0025;
+ 
 }
 .cont
 {
@@ -397,6 +406,23 @@ div.scrollMenu a:hover
   background-color: #777;
 }
 /*para dispositivos menores que 480px*/
+
+
+@media screen and (min-width: 720px)
+{
+  .link
+  {
+    padding: 11px 4%;
+  }
+}
+
+@media screen and (max-width: 375px)
+{
+  .link
+  {
+    padding: 11px 4%;
+  }
+}
 @media screen and (max-width: 720px)
 {
   .menu
@@ -433,10 +459,5 @@ div.scrollMenu a:hover
   {
     width: 120px;
     height: 70px;
-  }
-  .link
-  {
-    box-shadow: 1px 1px 8px 1px #0025;
-    padding: 11px 16px 11px 16px; 
   }
 }
