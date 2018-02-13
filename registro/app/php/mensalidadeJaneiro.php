@@ -21,7 +21,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"Status":"'   . $rs["status"]        . '",';  
     $outp .= '"Valor":"'. $rs["valor"]     . '"}';
 }
-$outp ='{"records":['.$outp.']}';
+$outp ='['.$outp.']';
 $conn->close();
 
 echo($outp);
