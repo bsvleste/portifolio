@@ -13,7 +13,7 @@ $conn = new mysqli("localhost", "root", "", "test");
 
 //$result = $conn->query("SELECT * FROM mensalidade WHERE id_mes='1'");
 //faz a consulta sql no bd
-$result = $conn->query("SELECT users.name, mensalidade.* FROM mensalidade
+$result = $conn->query("SELECT users.name, users.id as 'id_jogador', mensalidade.* FROM mensalidade
 						INNER JOIN users
 						ON mensalidade.id = users.id					
 						WHERE mensalidade.id_mes = '{$mes}'");
@@ -23,6 +23,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
     $outp .= '{"Name":"'  . $rs["name"] . '",';
     $outp .= '"Status":"'   . $rs["status"]        . '",';  
+    $outp .= '"Id_jogador":"'   . $rs["id_jogador"]        . '",';  
     $outp .= '"Valor":"'. $rs["valor"]     . '"}';
 }
 $outp ='['.$outp.']';

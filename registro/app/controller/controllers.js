@@ -130,11 +130,11 @@ app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeP
         headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
     },
-        url: 'app/php/mensalidadeJaneiro.php'
+        url: 'app/php/mensalidade.php'
    	})
     .then(function (response) {
-        //console.log(response);
-    	$scope.names = response.data.records;
+        console.log(response);
+    	$scope.names = response.data;
     	if($scope.mes == 1)
     		$scope.msg = "Janeiro";
     });
