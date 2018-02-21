@@ -13,9 +13,11 @@ $conn = new mysqli("localhost", "root", "", "test");
 
 //$result = $conn->query("SELECT * FROM mensalidade WHERE id_mes='1'");
 //faz a consulta sql no bd
-$result = $conn->query("SELECT users.name, users.id as 'id_jogador', mensalidade.* FROM mensalidade
+$result = $conn->query("SELECT users.name, users.id as 'id_jogador', mes.id_mes, mes.descricao_mes, mensalidade.valor, mensalidade.status FROM mensalidade
 						INNER JOIN users
-						ON mensalidade.id = users.id					
+						ON mensalidade.id = users.id
+						INNER JOIN mes
+						ON mensalidade.id_mes = mes.id_mes					
 						WHERE mensalidade.id_mes = '{$mes}'");
 //recebe os dados da consulta sql
 $outp = "";
@@ -24,6 +26,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '{"Name":"'  . $rs["name"] . '",';
     $outp .= '"Status":"'   . $rs["status"]        . '",';  
     $outp .= '"Id_jogador":"'   . $rs["id_jogador"]        . '",';  
+    $outp .= '"descricaoMes":"'   . $rs["descricao_mes"]        . '",';  
+    $outp .= '"idMes":"'   . $rs["id_mes"]        . '",';  
     $outp .= '"Valor":"'. $rs["valor"]     . '"}';
 }
 $outp ='['.$outp.']';
