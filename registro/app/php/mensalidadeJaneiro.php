@@ -3,11 +3,11 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers:Content-Type");
 
 // get posted data
-$data = json_decode(file_get_contents("php://input",true));
+//$data = json_decode(file_get_contents("php://input",true));
 //$request = json_decode($postdata);
 
 //pega o id para pesquisar o mes
-//$mes = $_GET['id'];
+$data = $_GET['id'];
 //faz a conexao com o bd
 $conn = new mysqli("localhost", "root", "", "test");
 
@@ -18,7 +18,7 @@ $result = $conn->query("SELECT users.name, users.id as 'id_jogador', mes.id_mes,
 						ON mensalidade.id = users.id
 						INNER JOIN mes
 						ON mensalidade.id_mes = mes.id_mes					
-						WHERE mensalidade.id_mes = '$data->id'");
+						WHERE mensalidade.id_mes = '$data'");
 //recebe os dados da consulta sql
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {

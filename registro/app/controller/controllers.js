@@ -130,7 +130,7 @@ app.controller('SobreCtrl',function($scope, $rootScope, $location, $http,$routeP
         headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
     },
-        url: 'app/php/mensalidade.php'
+        url: 'app/php/mensalidadeJaneiro.php'
    	})
     .then(function (response) {
         console.log(response);
