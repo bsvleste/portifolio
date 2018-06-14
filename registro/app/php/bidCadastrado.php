@@ -14,12 +14,10 @@ $idMensalidade = $_GET['idMensalidade'];
 //$idMensalidade = $data->idMensalidade;
 //$idMes = $_GET['idMes'];//$data->idMes;
 
-$id_user = $data->id_user;
-$bid = $data->bid->radio;
-//echo "Id do usuario = ".$id_user."resposda do Bid ".$bid;
+
 
 $conn = new mysqli("localhost", "root", "", "test");
-$result = $conn->query("INSERT INTO bid_jogador (id_user,id_bi,bid) values('$id_user',1,'$bid')");
+//$result = $conn->query("INSERT INTO bid_jogador (id_user,id_bi,bid) values('$id_user',1,'$bid')");
 
 $result = $conn->query("SELECT users.name, bid_jogador.* FROM bid_jogador
                         JOIN users

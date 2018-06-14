@@ -30,6 +30,7 @@ if(mysqli_num_rows($result) != 1)
         $outp .= '"email":"'   . $rs["email"]        . '",';  
         $outp .= '"senha":"'   . $rs["password"]        . '",';  
         $outp .= '"logado":"'   .'1' . '",';  
+        $outp .= '"id":"'   .$rs["id"] . '",';  
         $outp .= '"perm":"'. $rs["permissao"]     . '"}';
     }
     $outp ='['.$outp.']';
