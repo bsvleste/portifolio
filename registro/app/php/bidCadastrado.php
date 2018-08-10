@@ -1,7 +1,5 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Authorization,Content-Range,Content-Disposition,Origin, X-Requested-With , Content-Type");
-header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
