@@ -1,0 +1,52 @@
+{
+  "id": "todos_os_meus_projetos",
+  "type": "SharedSlice",
+  "name": "TodosOsMeusProjetos",
+  "description": "TodosOsMeusProjetos",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "projetos": {
+          "type": "Group",
+          "config": {
+            "label": "Projetos",
+            "repeat": true,
+            "fields": {
+              "imagem": {
+                "type": "Image",
+                "config": {
+                  "label": "imagem",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "select": "document"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

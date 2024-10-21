@@ -1,0 +1,95 @@
+{
+  "id": "meus_projetos",
+  "type": "SharedSlice",
+  "name": "Destaques",
+  "description": "MeusProjetos",
+  "variations": [
+    {
+      "id": "todosProjetos",
+      "name": "TodosProjetos",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "labelgotomeusprojetos": {
+          "type": "Text",
+          "config": {
+            "label": "LabelGotoMeusProjetos",
+            "placeholder": ""
+          }
+        },
+        "gotoprojetos": {
+          "type": "Link",
+          "config": {
+            "label": "GotoProjetos",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "repeatprojetos": {
+          "type": "Group",
+          "config": {
+            "label": "RepeatProjetos",
+            "repeat": true,
+            "fields": {
+              "imagem": {
+                "type": "Image",
+                "config": {
+                  "label": "Imagem",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "select": null
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading2"
+                }
+              },
+              "descriptionlink": {
+                "type": "Text",
+                "config": {
+                  "label": "DescriptionLink",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

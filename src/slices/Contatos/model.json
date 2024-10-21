@@ -1,0 +1,66 @@
+{
+  "id": "contatos",
+  "type": "SharedSlice",
+  "name": "Contatos",
+  "description": "Contatos",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,strong,em,heading3"
+          }
+        },
+        "links": {
+          "type": "Group",
+          "config": {
+            "label": "links",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "linklabel": {
+                "type": "Text",
+                "config": {
+                  "label": "LinkLabel",
+                  "placeholder": ""
+                }
+              },
+              "icones": {
+                "type": "Select",
+                "config": {
+                  "label": "icones",
+                  "placeholder": "",
+                  "options": [
+                    "LINKEDIN",
+                    "GITHUB",
+                    "INSTAGRAM",
+                    "E-MAIL"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

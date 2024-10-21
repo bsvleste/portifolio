@@ -1,0 +1,56 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt sint magna nisi dolor reprehenderit. Laboris culpa duis id aliqua laboris fugiat enim ea id anim dolore dolore deserunt minim."
+						}
+					}
+				]
+			},
+			"links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							],
+							[
+								"linklabel",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "spirit",
+									"type": "Text"
+								}
+							],
+							[
+								"icones",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "LINKEDIN",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
