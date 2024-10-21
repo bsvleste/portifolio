@@ -13,7 +13,7 @@ export const repositoryName =
  */
 const routes: prismic.ClientConfig["routes"] = [
   { type: "page", path: "/", uid: "home" },
-  { type: "projetos", path: "/projetos/", uid: "meus-projetos" },
+  { type: "page", path: "/projetos/", uid: "projetos" },
   { type: "projetos", path: "/projetos/:uid" },
 ];
 

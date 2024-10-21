@@ -14,7 +14,7 @@ import { components } from '@/slices';
 
 export async function generateMetadata(): Promise<Metadata> {
 	const client = createClient();
-	const home = await client.getByUID('page', 'home');
+	const home = await client.getByUID('page', 'projetos');
 
 	return {
 		title: prismic.asText(home.data.title),
@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Projetos() {
 	// The client queries content from the Prismic API
 	const client = createClient();
-	const home = await client.getByUID('meusprojetos', 'meus-projetos');
+	const home = await client.getByUID('page', 'projetos');
 
 	return (
 		<SliceZone

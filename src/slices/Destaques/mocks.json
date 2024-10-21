@@ -91,6 +91,13 @@
 									"value": "drive",
 									"type": "Text"
 								}
+							],
+							[
+								"isfeatured",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
 							]
 						]
 					}

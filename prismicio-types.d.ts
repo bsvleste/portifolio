@@ -681,6 +681,17 @@ export interface MeusProjetosSliceTodosProjetosPrimaryRepeatprojetosItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   descriptionlink: prismic.KeyTextField;
+
+  /**
+   * IsFeatured field in *Destaques → TodosProjetos → Primary → RepeatProjetos*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: meus_projetos.todosProjetos.primary.repeatprojetos[].isfeatured
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isfeatured: prismic.BooleanField;
 }
 
 /**

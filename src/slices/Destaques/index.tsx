@@ -2,7 +2,7 @@ import Bounded from '@/app/components/bounded';
 import { Content } from '@prismicio/client';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
-import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Props for `destaques`.
@@ -34,6 +34,9 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 				//className='flex flex-col mt-10'
 				className='grid gap-4 grid-cols-app'>
 				{slice.primary.repeatprojetos.map((item, index) => {
+					if (!item.isfeatured) {
+						return null;
+					}
 					return (
 						// Render the item
 						<div
@@ -70,21 +73,33 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 								</div>
 							</div>
 							<div className=''>
-								<PrismicNextImage
+								<Image
+									src={`${item.imagem.url}`}
+									alt={`${item.imagem.alt}`}
+									width={500}
+									height={500}
+								/>
+								{/* <PrismicNextImage
+									alt={item.imagem.alt}
 									field={item.imagem}
 									className='rounded-b-xl -mb-4'
-								/>
+								/> */}
 							</div>
 						</div>
 					);
 				})}
 			</div>
 			<div className='flex justify-center mt-10'>
-				<Link
+				<PrismicNextLink
+					field={slice.primary.gotoprojetos}
+					className='focus:ring-offset-3 relative inline-flex h-fit w-fit rounded-lg	 border border-zinc-100/20 bg-zinc-200/10 px-4 py-4 text-zinc-200 outline-none ring-yellow-300 transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2'>
+					{slice.primary.labelgotomeusprojetos}
+				</PrismicNextLink>
+				{/* <Link
 					href='/projetos'
 					className='focus:ring-offset-3 relative inline-flex h-fit w-fit rounded-lg	 border border-zinc-100/20 bg-zinc-200/10 px-4 py-4 text-zinc-200 outline-none ring-yellow-300 transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2'>
 					{slice.primary.labelgotomeusprojetos}
-				</Link>
+				</Link> */}
 			</div>
 		</Bounded>
 	);

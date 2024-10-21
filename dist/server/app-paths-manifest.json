@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/projetos/page": "app/projetos/page.js",
+  "/slice-simulator/page": "app/slice-simulator/page.js",
+  "/projetos/[uid]/page": "app/projetos/[uid]/page.js"
+}

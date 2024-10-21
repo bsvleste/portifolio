@@ -84,6 +84,15 @@
                   "label": "DescriptionLink",
                   "placeholder": ""
                 }
+              },
+              "isfeatured": {
+                "type": "Boolean",
+                "config": {
+                  "label": "IsFeatured",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }
