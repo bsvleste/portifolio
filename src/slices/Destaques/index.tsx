@@ -23,7 +23,7 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 					field={slice.primary.title}
 					components={{
 						heading1: ({ children }) => (
-							<h2 className='uppercase text-3xl sm:text-7xl font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
+							<h2 className='uppercase text-4xl sm:text-7xl font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
 								{children}
 							</h2>
 						),

@@ -46,12 +46,12 @@ const About = ({ slice }: AboutProps): JSX.Element => {
 							</p>
 						),
 						strong: ({ children }) => (
-							<em className='font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
+							<em className=' font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
 								{children}
 							</em>
 						),
 						heading1: ({ children }) => (
-							<h1 className='text-center font-bold text-2xl sm:text-7xl text-balance  text-zinc-300'>
+							<h1 className='text-center font-bold text-4xl sm:text-7xl text-balance  text-zinc-300'>
 								{children}
 							</h1>
 						),
@@ -60,12 +60,12 @@ const About = ({ slice }: AboutProps): JSX.Element => {
 				<div className='mt-5 text-center text-balance text-[10px] sm:text-xl text-zinc-400'>
 					<PrismicRichText field={slice.primary.description} />
 				</div>
-				<div className='flex  flex-wrap justify-center'>
+				<div className='gap-4 flex flex-wrap justify-center items-center border border-orange-400'>
 					{slice.primary.icons.map((item, index) => (
 						// Render the item
 						<div
 							key={index}
-							className='mt-4 sm:mt-12 flex-row justify-center items-center text-[10px] sm:text-lg ml-4'>
+							className='mt-4 sm:mt-12 flex-row justify-center items-center text-[10px] sm:text-lg '>
 							<div className='flex  justify-center items-center gap-1 py-2 px-2 bg-zinc-700 rounded-3xl'>
 								{icons[item.icon as keyof typeof icons]}
 								{item.icon}
