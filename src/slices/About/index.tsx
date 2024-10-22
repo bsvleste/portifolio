@@ -60,7 +60,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
 				<div className='mt-5 text-center text-balance text-[10px] sm:text-xl text-zinc-400'>
 					<PrismicRichText field={slice.primary.description} />
 				</div>
-				<div className='gap-4 flex flex-wrap justify-center items-center border border-orange-400'>
+				<div className='gap-4 flex flex-wrap justify-center items-center '>
 					{slice.primary.icons.map((item, index) => (
 						// Render the item
 						<div
