@@ -23,7 +23,7 @@ const TodosOsMeusProjetos = ({
 				<>
 					<PrismicNextImage
 						field={item.imagem}
-						alt={`${item?.imagem.alt}`}
+						alt=''
 					/>
 					<PrismicRichText field={item.description} />
 					<PrismicNextLink field={item.link}>Link</PrismicNextLink>
