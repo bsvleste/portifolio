@@ -73,17 +73,11 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 								</div>
 							</div>
 							<div className=''>
-								<Image
-									src={`${item.imagem.url}`}
-									alt={`${item.imagem.alt}`}
-									width={500}
-									height={500}
-								/>
-								{/* <PrismicNextImage
+								<PrismicNextImage
 									alt={item.imagem.alt}
 									field={item.imagem}
 									className='rounded-b-xl -mb-4'
-								/> */}
+								/>
 							</div>
 						</div>
 					);
