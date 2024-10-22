@@ -20,7 +20,7 @@ const Projetos = ({ slice }: ProjetosProps): JSX.Element => {
 			<PrismicRichText field={slice.primary.heading} />
 			<PrismicNextImage
 				field={slice.primary.imagem}
-				alt={slice.primary.imagem.alt}
+				alt={`${slice.primary.imagem.alt}`}
 			/>
 			<PrismicRichText field={slice.primary.body} />
 		</Bounded>
