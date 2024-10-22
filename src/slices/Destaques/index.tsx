@@ -23,7 +23,7 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 					field={slice.primary.title}
 					components={{
 						heading1: ({ children }) => (
-							<h2 className='uppercase text-4xl sm:text-7xl font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
+							<h2 className='uppercase text-4xl sm:text-7xl font-bold bg-gradient-to-b from-yellow-100 via-yellow-500 to-orange-700 bg-clip-text not-italic text-transparent'>
 								{children}
 							</h2>
 						),
@@ -41,8 +41,8 @@ const Destaques = ({ slice }: DestaquesProps): JSX.Element => {
 						// Render the item
 						<div
 							key={index}
-							className='cursor-pointer bg-zinc-200/10  relative overflow-hidden z-0 after:-z-10 after:content-[""] after:absolute after:inset-0  mt-16 flex justify-center items-start flex-col rounded-xl border-2  hover:border-yellow-500 hover:border-2 border-yellow-500/30 bg-gradient-to-b from-zinc-50/15 to-zinc-50/5  shadow-lg backdrop-blur-sm transition-all '>
-							<div className=' lg:grid-cols-3  py-3 px-3  h-52 flex  flex-col  focus:ring-offset-3 relative   	   text-zinc-200 outline-none ring-yellow-300 transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-yellow-100 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-yellow-200/40 hover:text-yellow-300 after:hover:bg-opacity-15 focus:ring-2  '>
+							className=' bg-zinc-200/10  relative overflow-hidden z-0 after:-z-10 after:content-[""] after:absolute after:inset-0  mt-16 flex justify-center items-start flex-col rounded-xl border-2  hover:border-yellow-500 hover:border-2 border-yellow-500/30 bg-gradient-to-b from-zinc-50/15 to-zinc-50/5  shadow-lg backdrop-blur-sm transition-all '>
+							<div className=' lg:grid-cols-3  py-3 px-3  h-52 flex  flex-col  focus:ring-offset-3 relative  text-zinc-200    '>
 								<PrismicRichText
 									field={item.name}
 									components={{

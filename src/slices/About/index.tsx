@@ -33,7 +33,7 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>;
 const About = ({ slice }: AboutProps): JSX.Element => {
 	return (
 		<Bounded
-			className='mt-20'
+			className=''
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}>
 			<div className=''>
@@ -46,7 +46,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
 							</p>
 						),
 						strong: ({ children }) => (
-							<em className=' font-bold bg-gradient-to-b from-yellow-100 to-yellow-500 bg-clip-text not-italic text-transparent'>
+							<em className=' font-bold bg-gradient-to-b from-yellow-100 via-yellow-500 to-orange-700 bg-clip-text not-italic text-transparent'>
 								{children}
 							</em>
 						),
