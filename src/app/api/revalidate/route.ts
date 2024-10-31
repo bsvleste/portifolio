@@ -4,5 +4,5 @@ import { revalidateTag } from "next/cache";
 export async function POST() {
   revalidateTag("prismic");
 
-  return NextResponse.json({ revalidated: true, now: Date.now() });
+  return NextResponse.json({ revalidated: false, now: Date.now() });
 }
