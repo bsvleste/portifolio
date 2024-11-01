@@ -5,5 +5,7 @@
   body{
     @apply bg-zinc-950;
     @apply text-zinc-200;
+
   }
+  
 }
