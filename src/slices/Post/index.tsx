@@ -20,7 +20,14 @@ const Post = ({ slice }: PostProps): JSX.Element => {
 				<h1 className='text-6xl font-bold text-zinc-200 mb-6'>
 					{slice.primary.title}
 				</h1>
-				<PrismicRichText field={slice.primary.content} />
+				<PrismicRichText
+					field={slice.primary.content}
+					components={{
+						paragraph: ({ children }) => (
+							<p className='text-zinc-400 text-md mb-2'>{children}</p>
+						),
+					}}
+				/>
 				<h3>{slice.primary.author}</h3>
 				<p>{slice.primary.publishdate}</p>
 				<PrismicNextLink field={slice.primary.link}>Link</PrismicNextLink>
