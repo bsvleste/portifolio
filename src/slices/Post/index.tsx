@@ -2,6 +2,7 @@ import Bounded from '@/app/components/bounded';
 import { Content } from '@prismicio/client';
 import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react';
+import { FaArrowLeft } from 'react-icons/fa';
 
 /**
  * Props for `Post`.
@@ -17,6 +18,13 @@ const Post = ({ slice }: PostProps): JSX.Element => {
 			data-slice-type={slice.slice_type}
 			data-slice-variation={slice.variation}>
 			<div className='max-w-3xl '>
+				<p className='text-zinc-500 text-sm mb-4 '>
+					Publicado em{' '}
+					{new Intl.DateTimeFormat('pt-BR', {
+						dateStyle: 'medium',
+						timeZone: 'America/Sao_Paulo',
+					}).format(new Date(slice.primary.publishdate || ''))}
+				</p>
 				<h1 className='text-6xl font-bold text-zinc-200 mb-6'>
 					{slice.primary.title}
 				</h1>
@@ -41,10 +49,12 @@ const Post = ({ slice }: PostProps): JSX.Element => {
 							),
 						}}
 					/>
-					<h3>{slice.primary.author}</h3>
 				</div>
-				<p>{slice.primary.publishdate}</p>
-				<PrismicNextLink field={slice.primary.link}>Link</PrismicNextLink>
+				<PrismicNextLink
+					field={slice.primary.link}
+					className='flex w-fit items-center gap-2 text-lg text-yellow-500 mt-4 hover:underline'>
+					<FaArrowLeft /> Voltar
+				</PrismicNextLink>
 			</div>
 		</Bounded>
 	);
