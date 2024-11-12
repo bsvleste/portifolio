@@ -156,6 +156,7 @@ export type MeusprojetosDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | InfoSlice
   | BlogPostSlice
   | ContatosSlice
   | MeusProjetosSlice
@@ -838,6 +839,58 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Info → Default → Primary*
+ */
+export interface InfoSliceDefaultPrimary {
+  /**
+   * Title field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *Info → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Info Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Info*
+ */
+type InfoSliceVariation = InfoSliceDefault;
+
+/**
+ * Info Shared Slice
+ *
+ * - **API ID**: `info`
+ * - **Description**: Info
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoSlice = prismic.SharedSlice<"info", InfoSliceVariation>;
+
+/**
  * Item in *Destaques → TodosProjetos → Primary → RepeatProjetos*
  */
 export interface MeusProjetosSliceTodosProjetosPrimaryRepeatprojetosItem {
@@ -1316,6 +1369,10 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceImageRight,
+      InfoSlice,
+      InfoSliceDefaultPrimary,
+      InfoSliceVariation,
+      InfoSliceDefault,
       MeusProjetosSlice,
       MeusProjetosSliceTodosProjetosPrimaryRepeatprojetosItem,
       MeusProjetosSliceTodosProjetosPrimary,

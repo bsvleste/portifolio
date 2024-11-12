@@ -7,6 +7,7 @@ export const components = {
   blog_post: dynamic(() => import("./BlogPost")),
   contatos: dynamic(() => import("./Contatos")),
   hero: dynamic(() => import("./Hero")),
+  info: dynamic(() => import("./Info")),
   meus_projetos: dynamic(() => import("./Destaques")),
   post: dynamic(() => import("./Post")),
   projetos: dynamic(() => import("./Projetos")),
